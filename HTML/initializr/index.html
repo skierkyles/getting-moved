@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Lobster|Oswald' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <style>
+            body {
+                padding-top: 50px;
+                padding-bottom: 20px;
+            }
+        </style>
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/main.css">     
+        
+        <!-- HomePage Specific Styles -->
+        <link rel="stylesheet" href="css/jquery.fullPage.css" />
+
+        <script src="js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    </head>
+    <body>
+      <!--[if lt IE 7]>
+          <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+      <![endif]-->
+      <div id="homePage">
+        <div class="section " id="loginPage">
+          <div class="intro">
+            <h1>Getting Moved</h1>
+            <p>It's time for you to start moving</p>
+          </div>
+        </div>
+        <div class="section" id="signUpPage">
+          <div class="intro">
+            <h1>Sign Up</h1>
+            <p>
+              Getting Moved helps you remember all the great times you had moving. 
+              And encourages you to move more. 
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <script src="js/vendor/jquery-1.11.0.js"></script>
+
+      <script src="js/vendor/bootstrap.min.js"></script>
+
+      <script src="js/main.js"></script>
+
+      <!-- HomePage Specific -->
+      <script src="js/vendor/jquery.fullPage.min.js"></script>
+      <script type="text/javascript">
+      $(document).ready(function() {
+        $('#fullpage').fullpage({
+          menu: '#menu',
+          anchors: ['loginPage', 'signUpPage'],
+          sectionsColor: ['#4E98B8', '#F49627'],
+          autoScrolling: false
+        });
+      });
+      </script>
+    </body>
+</html>

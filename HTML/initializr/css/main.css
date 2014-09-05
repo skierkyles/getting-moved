@@ -1,0 +1,37 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+  body {
+
+  }
+	body p {
+		font-family: 'Oswald', sans-serif;
+	}
+
+#homePage {
+
+}
+	#homePage h1 {
+		font-family: 'Lobster', cursive;
+	}
+	#homePage .intro {
+		margin: 0 auto;
+		text-align: center;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
