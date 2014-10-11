@@ -16,8 +16,18 @@ ActiveAdmin.register_page "Dashboard" do
       column do
         panel "Recent Tasks" do
           ul do
-            Task.take 10 do |post|
-              li link_to(post.title, admin_post_path(post))
+            Task.find :all do |task|
+              li task.title
+            end
+          end
+        end
+      end
+
+      column do
+        panel "Recent Logs" do
+          ul do
+            LoggedTask.find :all do |lt|
+              li lt.notes
             end
           end
         end
