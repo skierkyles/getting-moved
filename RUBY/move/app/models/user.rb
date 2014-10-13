@@ -1,3 +1,12 @@
 class User < ActiveRecord::Base
-  validates_presence_of :name, :email
+  # Validators
+  validates :name, presence: true, length: { maximum: 60 }
+  validates :email, presence: true, uniqueness: { case_sensitive: false }
+  validates :password, length: { minimum: 6 }
+
+  # Normalize the emails to lowercase
+  before_save { self.email = email.downcase }
+
+  # Password things
+  has_secure_password
 end
