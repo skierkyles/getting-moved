@@ -1,2 +1,20 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Lobster|Oswald', 'jquery.fullPage', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'jquery.fullPage.min', 'data-turbolinks-track' => true %>
+
+<div id="homePage">
+  <div class="section " id="loginPage">
+    <div class="intro">
+      <h1>Getting Moved</h1>
+      <p>It's time for you to start moving</p>
+    </div>
+  </div>
+  <div class="section" id="signUpPage">
+    <div class="intro">
+      <h1>Sign Up</h1>
+      <p>
+        Getting Moved helps you remember all the great times you had moving.
+        And encourages you to move more.
+      </p>
+    </div>
+  </div>
+</div>
