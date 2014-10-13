@@ -7,6 +7,6 @@ class User < ActiveRecord::Base
   # Normalize the emails to lowercase
   before_save { self.email = email.downcase }
 
-  # Password things
+  # Password things. Much secure
   has_secure_password
 end
