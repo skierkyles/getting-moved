@@ -1,5 +1,5 @@
 ActiveAdmin.register Task do
-  permit_params :title
+  permit_params :title, :user_id
 
   show do |task|
     attributes_table do

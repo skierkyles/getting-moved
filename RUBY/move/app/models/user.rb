@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  # Relations
+  has_many :tasks
+
   # Validators
   validates :name, presence: true, length: { maximum: 60 }
   validates :email, presence: true, uniqueness: { case_sensitive: false }
