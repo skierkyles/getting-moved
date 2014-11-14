@@ -9,12 +9,9 @@ class TasksController < ApplicationController
   end
 
   def create
-    puts "Got the task!"
-
     @task = Task.new(task_params)
-    if @current_user
-      print @current_user
-      @task.user_id = @current_user.id
+    if current_user
+      @task.user_id = current_user.id
     end
 
     if @task.save

@@ -1,10 +1,11 @@
 <% provide(:title, @user.name) %>
 
 <h1>Oh hey, I'm <%= @user.name %></h1>
-<h3>Call me ;) <%= @user.email %></h3>
+<h3><%= @user.email %></h3>
 
-<% if @current_user %>
-<h1>You're signed in!</h1>
-<% else %>
-<h1>How about you sign in?</h1>
+<% if current_user %>
+  <h1>Tasks (<%= link_to "New Task" , :new_task %>)</h1>
+  <% @tasks.each do |t| %>
+    <h3><%= link_to t.title , t %></h3>
+  <% end %>
 <% end %>

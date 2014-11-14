@@ -3,15 +3,4 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   include SessionsHelper
-
-  before_filter :set_current_user
-  def set_current_user
-    puts "Current user!"
-
-    if session[:user]
-      @current_user = User.find(session[:user])
-    else
-      @current_user = nil
-    end
-  end
 end
