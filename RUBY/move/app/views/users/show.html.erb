@@ -1,11 +1,18 @@
 <% provide(:title, @user.name) %>
 
-<h1>Oh hey, I'm <%= @user.name %></h1>
-<h3><%= @user.email %></h3>
+<div class="jumbotron">
+  <h1><%= @user.name %></h1>
+  <p></p>
+</div>
 
 <% if current_user %>
-  <h1>Tasks (<%= link_to "New Task" , :new_task %>)</h1>
-  <% @tasks.each do |t| %>
-    <h3><%= link_to t.title , t %></h3>
-  <% end %>
+  <h1>Tasks (<%= link_to "New" , :new_task %>)</h1>
+
+  <br>
+  <div class="list-group">
+    <% @tasks.each do |t| %>
+    <%= link_to t.title , t , class: "list-group-item" %>
+    <% end %>
+  </div>
+
 <% end %>

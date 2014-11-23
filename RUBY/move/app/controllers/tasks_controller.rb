@@ -4,7 +4,6 @@ class TasksController < ApplicationController
   end
 
   def new
-    puts "New Task!"
     @task = Task.new
   end
 
