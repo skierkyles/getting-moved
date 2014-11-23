@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :tasks
+  resources :logged_tasks
 
   # The user system
   resources :users

@@ -1,0 +1,12 @@
+<h1>Log new {TASK NAME HERE} task!</h1>
+
+<%= form_for @logged_task do |f| %>
+  <p>
+    <%= f.label :notes %>:
+    <%= f.text_field :notes %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

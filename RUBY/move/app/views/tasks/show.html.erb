@@ -1,4 +1,11 @@
 <% provide(:title, @task.title) %>
 
 <h1><%= @task.title %></h1>
+<!-- http://stackoverflow.com/questions/11835471/managing-url-parameters-in-rails -->
+<a href="/logged_tasks/new/<%= @task.id %>">Log new task</a>
 <h3>Logged Tasks</h3>
+<div class="list-group">
+  <% @task.logged_tasks.each do |t| %>
+  <div class="list-group-item"><%= t.notes %></div>
+  <% end %>
+</div>
