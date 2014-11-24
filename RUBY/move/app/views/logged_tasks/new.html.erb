@@ -1,6 +1,7 @@
-<h1>Log new {TASK NAME HERE} task!</h1>
+<h1>Log new <%= @parent_task.title %> task!</h1>
 
 <%= form_for @logged_task do |f| %>
+  <%= f.hidden_field :task_id, :value => @logged_task.task_id %>
   <p>
     <%= f.label :notes %>:
     <%= f.text_field :notes %>
