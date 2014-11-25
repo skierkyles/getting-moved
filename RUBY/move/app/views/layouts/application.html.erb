@@ -4,16 +4,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "Move" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Move" %>">
-    <%= stylesheet_link_tag 'application', '_bootstrap', 'jquery.fullPage', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
 
     <%= javascript_include_tag 'application', 'bootstrap', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <header>
-      <%= render 'layouts/navigation' %>
-    </header>
-    <main role="main">
+    <%= render 'layouts/navigation' %>
+    <main role="main" class="container">
       <%= render 'layouts/messages' %>
       <%= yield %>
     </main>

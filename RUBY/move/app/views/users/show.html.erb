@@ -1,18 +1,27 @@
 <% provide(:title, @user.name) %>
 
-<div class="jumbotron">
-  <h1><%= @user.name %></h1>
-  <p></p>
+<div class="row">
+  <div class="col-md-9 col-sm-12">
+    <h1>Tasks</h1>
+    <div class="list-group">
+      <% @tasks.each do |t| %>
+      <%= link_to t.title , t , class: "list-group-item" %>
+      <% end %>
+    </div>
+    <%= link_to "New" , :new_task , class: 'btn btn-success' %>
+  </div>
+  <div class="col-md-3 col-sm-12 panel">
+    <h1><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+<%= @user.name %></h1>
+    <p>Member Since: <%= @user.created_at.to_formatted_s(:month_and_year) %></p>
+    <p>Tasks Logged: <%= @user.tasks_logged %></p>
+  </div>
 </div>
 
 <% if current_user %>
-  <h1>Tasks (<%= link_to "New" , :new_task %>)</h1>
+
 
   <br>
-  <div class="list-group">
-    <% @tasks.each do |t| %>
-    <%= link_to t.title , t , class: "list-group-item" %>
-    <% end %>
-  </div>
+
 
 <% end %>

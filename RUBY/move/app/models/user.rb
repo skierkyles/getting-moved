@@ -24,6 +24,15 @@ class User < ActiveRecord::Base
     Digest::SHA1.hexdigest(token.to_s)
   end
 
+  def logged_tasks
+    logged = []
+
+    self.tasks.each do |t|
+      logged += t.logged_tasks.count
+    end
+
+  end
+
   private
     def create_remember_token
       self.remember_token = User.digest(User.new_remember_token)

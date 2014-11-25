@@ -1,0 +1,7 @@
+<h1>Task Stream</h1>
+<% @logged_tasks.each do |t| %>
+  <p><%= t.task.user.name %> logged an activity to <%= t.task.title %></p>
+  <p><%= t.notes  %></p>
+  <%= link_to 'Read More' , t %>
+  <hr>
+<% end %>

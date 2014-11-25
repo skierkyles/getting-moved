@@ -1,4 +1,8 @@
 class LoggedTasksController < ApplicationController
+  def index
+    @logged_tasks = LoggedTask.all
+  end
+
   def new
     task_id = params[:task_id]
     @logged_task = LoggedTask.new

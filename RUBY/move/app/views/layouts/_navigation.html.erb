@@ -1,4 +1,40 @@
-<ul class="nav">
-  <li><%= link_to 'Home', root_path %></li>
-  <%= render 'layouts/navigation_links' %>
-</ul>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-bar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!-- <a class="navbar-brand" href="#">Getting Moved</a> -->
+      <%= link_to "Getting Moved" , root_path , class: "navbar-brand" %>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="nav-bar-collapse">
+      <ul class="nav navbar-nav">
+        <li><%= link_to "Activity Stream" , logged_tasks_path %></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+        <li><%= link_to "My Profile" , :users %></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_user.name %> <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Cool Thing 1</a></li>
+            <li><a href="#">Not as Cool Thing</a></li>
+            <li class="divider"></li>
+            <li><%= link_to "Sign Out" , :signout %></li>
+          </ul>
+        </li>
+        <% else %>
+        <li><%= link_to "Sign In" , :signin %></li>
+        <% end %>
+      </ul>
+
+    </div><!-- /.navbar-collapse -->
+  </div>
+</nav>
