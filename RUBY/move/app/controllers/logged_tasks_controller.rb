@@ -13,7 +13,6 @@ class LoggedTasksController < ApplicationController
 
   def create
     @logged_task = LoggedTask.new(logged_task_params)
-    puts params[:task_id]
 
     if @logged_task.save
       redirect_to @logged_task
@@ -24,6 +23,7 @@ class LoggedTasksController < ApplicationController
 
   def show
     @logged_task = LoggedTask.find(params[:id])
+    @logged_task_comment = Comment.new
   end
 
   private

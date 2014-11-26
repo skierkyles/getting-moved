@@ -5,3 +5,16 @@
 <% @logged_task.comments.each do |c| %>
 <p><%= c.user.name %> said: <%= c.copy %></p>
 <% end %>
+
+<%= form_for @logged_task_comment do |f| %>
+  <%= f.hidden_field :logged_task_id, :value => @logged_task.id %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <p>
+    <%= f.label :copy %>:
+    <%= f.text_field :copy %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
