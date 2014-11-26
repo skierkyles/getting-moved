@@ -1,12 +1,31 @@
 <% provide(:title, @task.title) %>
 
-<h1><%= @task.title %></h1>
+<div class="row">
+  <div class="col-md-8">
+    <h1>Logged Tasks</h1>
+    <div class="list-group">
+      <% @task.logged_tasks.take(10).each do |t| %>
+        <%= link_to t, class: 'list-group-item' do %>
+          <%= t.notes %> on <%= t.created_at.to_formatted_s(:short_date_and_time) %>
+        <% end %>
+      <% end %>
+    </div>
+    <% if @task.user == current_user %>
+      <%= link_to "Log", new_logged_task_path(:task_id=> @task.id), class: 'btn btn-success' %>
+    <% end %>
+  </div>
+  <div class="col-md-4 panel">
+    <h1><%= @task.title %></h1>
+    <p>Logged Tasks: <%= @task.logged_tasks.count %></p>
+    <%= link_to @task.logged_tasks.first do %>
+      Most Recent Task: <%= @task.logged_tasks.first.created_at.to_formatted_s(:short_date_and_time) %>
+    <% end %>
+    <br>
+    <%= link_to @task.logged_tasks.last do %>
+      First Logged Task: <%= @task.logged_tasks.last.created_at.to_formatted_s(:short_date_and_time) %>
+    <% end %>
+  </div>
+</div>
+
 <!-- http://stackoverflow.com/questions/11835471/managing-url-parameters-in-rails -->
 <!-- <a href="/logged_tasks/new/?task_id=<%= @task.id %>">Log new task</a> -->
-<%= link_to "Log", new_logged_task_path(:task_id=> @task.id) %>
-<h3>Logged Tasks</h3>
-<div class="list-group">
-  <% @task.logged_tasks.each do |t| %>
-  <div class="list-group-item"><%= t.notes %></div>
-  <% end %>
-</div>

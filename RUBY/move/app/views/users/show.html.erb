@@ -1,32 +1,34 @@
 <% provide(:title, @user.name) %>
 
 <div class="row">
-  <div class="col-md-3 col-sm-12">
+  <div class="col-md-3">
     <h1><i class="fa fa-cogs"></i> Activities</h1>
     <div class="list-group">
       <% @tasks.each do |t| %>
         <%= link_to t.title , t , class: "list-group-item" %>
       <% end %>
     </div>
-    <%= link_to :new_task , class: 'btn btn-success' do %>
-      <i class="fa fa-check"></i> New Activity
+    <% if @user == current_user %>
+      <%= link_to :new_task , class: 'btn btn-success' do %>
+        <i class="fa fa-check"></i> New Activity
+      <% end %>
     <% end %>
   </div>
 
-  <div class="col-md-6 col-sm-12">
+  <div class="col-md-5">
     <h1><i class="fa fa-history"></i> History</h1>
 
     <div class="list-group">
       <% @user.tasks_logged.each do |t| %>
         <%= link_to t , class: "list-group-item" do %>
-          <h4><%= t.task.title %> <small>on <%= t.created_at.to_formatted_s(:long_ordinal) %></small></h4>
+          <h4><%= t.task.title %> <small>on <%= t.created_at.to_formatted_s(:short_date_and_time) %></small></h4>
           <%= t.notes %>
         <% end %>
       <% end %>
     </div>
   </div>
 
-  <div class="col-md-3 col-sm-12 panel">
+  <div class="col-md-4 panel">
     <h1><i class="fa fa-user"></i> <%= @user.name %></h1>
     <p>Member Since: <%= @user.created_at.to_formatted_s(:month_and_year) %></p>
     <p>Tasks Logged: <%= @user.tasks_logged.count %></p>

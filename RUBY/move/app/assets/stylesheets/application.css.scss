@@ -9,14 +9,14 @@
  * compiled file so the styles you add here take precedence over styles defined in any styles
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
- *= require 'simple'
- *= require 'welcome'
- *= require '_bootstrap-sprockets'
- *= require '_bootstrap'
- *= require 'font-awesome'
- *= require 'jquery.fullPage'
- *= require_self
  */
+@import 'simple';
+@import 'welcome';
+@import '_bootstrap-sprockets';
+@import '_bootstrap';
+@import 'font-awesome';
+@import 'jquery.fullPage';
+
 body {
 
 }
