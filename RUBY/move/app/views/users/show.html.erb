@@ -16,14 +16,11 @@
   </div>
 
   <div class="col-md-5">
-    <h1><i class="fa fa-history"></i> History</h1>
+    <h1><i class="fa fa-history"></i> Stream</h1>
 
     <div class="list-group">
       <% @user.tasks_logged.each do |t| %>
-        <%= link_to t , class: "list-group-item" do %>
-          <h4><%= t.task.title %> <small>on <%= t.created_at.to_formatted_s(:short_date_and_time) %></small></h4>
-          <%= t.notes %>
-        <% end %>
+        <%= render partial: "logged_tasks/logged_task_individual", locals: {logged_task: t} %>
       <% end %>
     </div>
   </div>

@@ -5,9 +5,7 @@
     <h1>Logged Tasks</h1>
     <div class="list-group">
       <% @task.logged_tasks.take(10).each do |t| %>
-        <%= link_to t, class: 'list-group-item' do %>
-          <%= t.notes %> on <%= t.created_at.to_formatted_s(:short_date_and_time) %>
-        <% end %>
+        <%= render partial: "logged_tasks/logged_task_individual", locals: {logged_task: t} %>
       <% end %>
     </div>
     <% if @task.user == current_user %>
