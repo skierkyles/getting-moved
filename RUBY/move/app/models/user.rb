@@ -24,13 +24,14 @@ class User < ActiveRecord::Base
     Digest::SHA1.hexdigest(token.to_s)
   end
 
-  def logged_tasks
+  def tasks_logged
     logged = []
 
     self.tasks.each do |t|
-      logged += t.logged_tasks.count
+      logged += t.logged_tasks
     end
 
+    logged
   end
 
   private

@@ -20,9 +20,14 @@
 
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
-        <li><%= link_to "My Profile" , :users %></li>
+        <li><%= link_to current_user.name , :users %></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= current_user.name %> <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+            <i class="fa fa-sliders hidden-xs"></i>
+            <span class="visible-xs">Settings</span>
+            <span class="caret hidden-xs"></span>
+          </a>
+
           <ul class="dropdown-menu" role="menu">
             <li><a href="#">Cool Thing 1</a></li>
             <li><a href="#">Not as Cool Thing</a></li>

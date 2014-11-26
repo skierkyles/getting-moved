@@ -11,7 +11,9 @@
  * file per style scope.
  *= require 'simple'
  *= require 'welcome'
+ *= require '_bootstrap-sprockets'
  *= require '_bootstrap'
+ *= require 'font-awesome'
  *= require 'jquery.fullPage'
  *= require_self
  */

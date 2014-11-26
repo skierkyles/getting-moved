@@ -61,6 +61,8 @@ GEM
     coffee-script-source (1.8.0)
     erubis (2.7.0)
     execjs (2.2.1)
+    font-awesome-rails (4.2.0.0)
+      railties (>= 3.2, < 5.0)
     formtastic (3.0.0)
       actionpack (>= 3.2.13)
     has_scope (0.6.0.rc)
@@ -158,6 +160,7 @@ DEPENDENCIES
   activeadmin!
   bcrypt (~> 3.1.7)
   coffee-rails (~> 4.0.0)
+  font-awesome-rails
   jbuilder (~> 2.0)
   jquery-rails
   rails (= 4.1.6)
