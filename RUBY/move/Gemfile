@@ -44,6 +44,8 @@ gem 'activeadmin', github: 'activeadmin'
 # Awesome fonts duh
 gem "font-awesome-rails"
 
+gem 'activesupport'
+
 group :development do
   gem 'rails_layout'
 end

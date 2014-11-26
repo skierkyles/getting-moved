@@ -19,11 +19,11 @@
     <p>Logged Tasks: <%= @task.logged_tasks.count %></p>
     <% if @task.logged_tasks.first %>
       <%= link_to @task.logged_tasks.first do %>
-        Most Recent Task: <%= @task.logged_tasks.first.created_at.to_formatted_s(:short_date_and_time) %>
+        Most recent task was <%= time_ago_in_words(@task.logged_tasks.first.created_at) %> ago
       <% end %>
       <br>
       <%= link_to @task.logged_tasks.last do %>
-        First Logged Task: <%= @task.logged_tasks.last.created_at.to_formatted_s(:short_date_and_time) %>
+        First logged task was on <%= @task.logged_tasks.last.created_at.to_formatted_s(:short_date_and_time) %>
       <% end %>
     <% end %>
   </div>

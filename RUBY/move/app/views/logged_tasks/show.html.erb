@@ -1,20 +1,34 @@
-<h1><%= @logged_task.task.title %> Logged Task</h1>
-<%= @logged_task.notes %>
+<div class="row">
+  <div class="col-md-7">
+    <h1><%= @logged_task.task.title %> <small>Logged Task</small></h1>
+    <%= @logged_task.notes %>
+  </div>
 
-<h3>Comments</h3>
-<% @logged_task.comments.each do |c| %>
-<p><%= c.user.name %> said: <%= c.copy %></p>
-<% end %>
+  <div class="col-md-5">
+    <h3>Comments</h3>
+    <% @logged_task.comments.each do |c| %>
+      <div class="panel panel-default">
+        <div class="panel-heading"><%= c.user.name %> said <small style="position:absolute; right: 25px;"><%= time_ago_in_words(c.created_at) %> ago</small></div>
+        <div class="panel-body">
+          <%= c.copy %>
+        </div>
+      </div>
+    <% end %>
 
-<%= form_for @logged_task_comment do |f| %>
-  <%= f.hidden_field :logged_task_id, :value => @logged_task.id %>
-  <%= f.hidden_field :user_id, :value => current_user.id %>
-  <p>
-    <%= f.label :copy %>:
-    <%= f.text_field :copy %>
-  </p>
-
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
+    <div class="panel panel-default">
+      <div class="panel-heading">Add Comment</div>
+      <div class="panel-body">
+      <%= form_for @logged_task_comment do |f| %>
+        <%= f.hidden_field :logged_task_id, :value => @logged_task.id %>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+        <div class="input-group">
+          <%= f.text_field :copy, class: "form-control" %>
+          <span class="input-group-btn">
+            <%= f.submit "Comment", class: "btn btn-default" %>
+          </span>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>
