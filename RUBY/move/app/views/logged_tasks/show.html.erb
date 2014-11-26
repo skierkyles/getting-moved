@@ -1,2 +1,7 @@
 <h1><%= @logged_task.task.title %> Logged Task</h1>
 <%= @logged_task.notes %>
+
+<h3>Comments</h3>
+<% @logged_task.comments.each do |c| %>
+<p><%= c.user.name %> said: <%= c.copy %></p>
+<% end %>

@@ -17,12 +17,14 @@
   <div class="col-md-4 panel">
     <h1><%= @task.title %></h1>
     <p>Logged Tasks: <%= @task.logged_tasks.count %></p>
-    <%= link_to @task.logged_tasks.first do %>
-      Most Recent Task: <%= @task.logged_tasks.first.created_at.to_formatted_s(:short_date_and_time) %>
-    <% end %>
-    <br>
-    <%= link_to @task.logged_tasks.last do %>
-      First Logged Task: <%= @task.logged_tasks.last.created_at.to_formatted_s(:short_date_and_time) %>
+    <% if @task.logged_tasks.first %>
+      <%= link_to @task.logged_tasks.first do %>
+        Most Recent Task: <%= @task.logged_tasks.first.created_at.to_formatted_s(:short_date_and_time) %>
+      <% end %>
+      <br>
+      <%= link_to @task.logged_tasks.last do %>
+        First Logged Task: <%= @task.logged_tasks.last.created_at.to_formatted_s(:short_date_and_time) %>
+      <% end %>
     <% end %>
   </div>
 </div>

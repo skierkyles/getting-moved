@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'comment/new'
+
   ActiveAdmin.routes(self)
   # get 'welcome/index'
 

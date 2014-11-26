@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   # Relations
   has_many :tasks
+  has_many :comments
 
   # Validators
   validates :name, presence: true, length: { maximum: 60 }
