@@ -21,6 +21,16 @@ class LoggedTasksController < ApplicationController
     end
   end
 
+  def destroy
+    @logged_task = LoggedTask.find(params[:id])
+    parent_task = @logged_task.task
+    if (@logged_task.task.user == current_user)
+      @logged_task.destroy
+    end
+
+    redirect_to parent_task
+  end
+
   def show
     @logged_task = LoggedTask.find(params[:id])
     @logged_task_comment = Comment.new

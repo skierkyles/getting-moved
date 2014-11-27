@@ -1,6 +1,15 @@
 <div class="row">
   <div class="col-md-7">
-    <h1><%= link_to @logged_task.task.title, @logged_task.task %> <small>Logged Task</small></h1>
+    <h1>
+      <%= link_to @logged_task.task.title, @logged_task.task %>
+      <small>Logged Task
+      <% if @logged_task.task.user == current_user %>
+        <%= link_to @logged_task, :method => :delete do %>
+          <i class="fa fa-times"></i>
+        <% end %>
+      <% end %>
+      </small>
+    </h1>
     <%= @logged_task.notes %>
   </div>
 
@@ -8,7 +17,7 @@
     <h3>Comments</h3>
     <% @logged_task.comments.each do |c| %>
       <div class="panel panel-default">
-        <div class="panel-heading"><i class="fa fa-comment"></i> <%= c.user.name %> said <small style="position:absolute; right: 25px;"><%= time_ago_in_words(c.created_at) %> ago</small></div>
+        <div class="panel-heading"><i class="fa <%= cycle('fa-comment', 'fa-comment-o') %>"></i> <%= c.user.name %> said <small style="position:absolute; right: 25px;"><%= time_ago_in_words(c.created_at) %> ago</small></div>
         <div class="panel-body">
           <%= c.copy %>
         </div>
