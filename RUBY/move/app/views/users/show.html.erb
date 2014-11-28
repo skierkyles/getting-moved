@@ -5,7 +5,15 @@
     <h1><i class="fa fa-cogs"></i> Activities</h1>
     <div class="list-group">
       <% @tasks.each do |t| %>
-        <%= link_to t.title , t , class: "list-group-item" %>
+        <div class='list-group-item'>
+          <h4 class="list-item-header"><%= t.title %></h4>
+          <p>Last Logged <%= t.time_since_last_logged %>
+          <div class="btn-group" role="group">
+            <%= link_to "View", t, class: 'btn btn-default btn-xs' %>
+            <%= link_to "Log", new_logged_task_path(:task_id=> t.id), class: 'btn btn-default btn-xs' %>
+          </div>
+
+        </div>
       <% end %>
     </div>
     <% if @user == current_user %>

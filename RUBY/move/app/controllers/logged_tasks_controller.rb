@@ -17,7 +17,7 @@ class LoggedTasksController < ApplicationController
     if @logged_task.save
       redirect_to @logged_task
     else
-      render 'new'
+      redirect_to :action => 'new', :task_id => @logged_task.task.id
     end
   end
 

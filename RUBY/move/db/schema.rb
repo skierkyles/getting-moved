@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141126032040) do
+ActiveRecord::Schema.define(version: 20141128055416) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 20141126032040) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "task_id"
+    t.date     "task_date"
   end
 
   add_index "logged_tasks", ["task_id"], name: "index_logged_tasks_on_task_id"
