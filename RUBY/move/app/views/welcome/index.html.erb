@@ -1,22 +1,11 @@
-<%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Lobster|Oswald', 'jquery.fullPage', media: 'all', 'data-turbolinks-track' => true %>
-<%= javascript_include_tag 'jquery.fullPage.min', 'data-turbolinks-track' => true %>
-
-<div id="homePage">
-  <div class="section " id="loginPage">
-    <div class="intro">
-      <h1>Getting Moved</h1>
-      <p>It's time for you to start moving</p>
-      <p><%= link_to :Signup , :signup %></p>
-			<p><%= link_to :Signin , :signin %></p>
-    </div>
+<div id="homePage" class="row">
+  <div class="col-lg-4 col-md-3">
   </div>
-  <div class="section" id="signUpPage">
-    <div class="intro">
-      <h1>Sign Up</h1>
-      <p>
-        Getting Moved helps you remember all the great times you had moving.
-        And encourages you to move more.
-      </p>
-    </div>
+  <div class="col-lg-4 col-md-6">
+    <h1>The Time Tracker <small>By Kyle Swanson</small></h1>
+    <%= link_to :Signup , :signup, class: 'btn btn-default' %>
+    <%= link_to :Signin , :signin, class: 'btn btn-default' %>
+  </div>
+  <div class="col-lg-4 col-md-3">
   </div>
 </div>
