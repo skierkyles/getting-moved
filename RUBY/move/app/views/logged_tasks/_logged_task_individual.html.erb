@@ -1,5 +1,5 @@
 <%= link_to logged_task , class: "list-group-item" do %>
-  <h4><%= logged_task.task.title %> <small>on <%= logged_task.created_at.to_formatted_s(:short_date_and_time) %></small></h4>
+  <h4><%= logged_task.task.title %> <small>on <%= logged_task.task_date.to_formatted_s(:short_date) %></small></h4>
   <p><%= logged_task.notes %></p>
   <% if logged_task.comments.count > 0 %>
     <footer><i class="fa fa-comments"></i> <%= logged_task.comments.count %></footer>

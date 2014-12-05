@@ -5,6 +5,7 @@ class LoggedTask < ActiveRecord::Base
 
   # Validators
   validates :notes, presence: true
+  validates :task_date, presence: true
 
-  default_scope { order('created_at DESC') }
+  default_scope { order('task_date DESC') }
 end
