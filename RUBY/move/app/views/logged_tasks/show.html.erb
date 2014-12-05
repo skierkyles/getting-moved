@@ -24,6 +24,15 @@
       </div>
     <% end %>
 
+    <% if @logged_task.comments.count == 0 %>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          No comments here, why don't you <%= link_to 'sign in', :signin %> and leave one?
+        </div>
+      </div>
+    <% end %>
+
+    <% if current_user %>
     <div class="panel panel-default">
       <div class="panel-heading">Add Comment</div>
       <div class="panel-body">
@@ -39,5 +48,6 @@
       <% end %>
       </div>
     </div>
+    <% end %>
   </div>
 </div>
