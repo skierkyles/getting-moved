@@ -38,6 +38,6 @@ class LoggedTasksController < ApplicationController
 
   private
     def logged_task_params
-      params.require(:logged_task).permit(:task_id, :notes)
+      params.require(:logged_task).permit(:task_id, :notes,:task_date)
     end
 end
