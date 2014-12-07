@@ -53,6 +53,10 @@ gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: '
 
 gem 'simple_form'
 
+# Serve static pages
+gem 'high_voltage', '~> 2.2.1'
+
+
 group :development do
   gem 'rails_layout'
 end

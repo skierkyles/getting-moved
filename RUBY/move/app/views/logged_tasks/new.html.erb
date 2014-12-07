@@ -4,7 +4,8 @@
   <%= f.hidden_field :task_id, :value => @logged_task.task_id %>
 
   <%= f.input :notes %>
-  <%= f.input :task_date, :as => :date_picker %>
+
+  <%= f.input :task_date, :as => :date_picker, :label => 'The date you did this task, DD/MM/YYYY' %>
 
   <%= f.button :submit %>
 <% end %>

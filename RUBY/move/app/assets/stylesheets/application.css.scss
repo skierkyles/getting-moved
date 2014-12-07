@@ -19,8 +19,26 @@
 @import 'bootstrap-datetimepicker';
 
 body {
-
+  font-family: 'Oswald', sans-serif;
 }
 body p {
   font-family: 'Oswald', sans-serif;
+}
+
+.lobster {
+  font-family: 'Lobster', cursive;
+}
+
+.big-fa {
+  font-size: 70px;
+}
+
+.center-text {
+  text-align: center;
+}
+
+
+// Date picker
+.ui-datepicker-inline {
+  display: none !important;
 }

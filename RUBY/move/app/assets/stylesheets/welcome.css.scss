@@ -3,10 +3,17 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #homePage {
-
+	text-align: center;
 }
+	#homePage {
+	}
 	#homePage h1 {
 		font-family: 'Lobster', cursive;
 	}
-	#homePage .intro {
+	#homePage h3 {
+		margin-top: 5px;
+	}
+	#homePage .btn {
+		margin: 30px;
+		padding: 20px 50px;
 	}
