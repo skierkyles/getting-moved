@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   resources :tasks
   resources :logged_tasks
   resources :comments
+  resources :user_relationships
 
   # The user system
   resources :users

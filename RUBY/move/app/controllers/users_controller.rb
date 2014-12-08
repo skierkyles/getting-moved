@@ -3,6 +3,12 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     @tasks = @user.tasks
+
+    @can_have_relationship = (current_user != @user)
+
+    if @can_have_relationship
+      @relationship = current_user.has_relationship_with?(@user)
+    end
   end
 
   def index

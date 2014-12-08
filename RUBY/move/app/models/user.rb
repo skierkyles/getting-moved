@@ -36,6 +36,10 @@ class User < ActiveRecord::Base
     logged
   end
 
+  def has_relationship_with? user
+    rel = UserRelationship.find_by(:user => self, :followed_user => user)
+  end
+
   private
     def create_remember_token
       self.remember_token = User.digest(User.new_remember_token)

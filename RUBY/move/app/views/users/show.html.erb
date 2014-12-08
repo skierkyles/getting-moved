@@ -35,7 +35,26 @@
 
   <div class="col-md-4 panel">
     <h1><i class="fa fa-user"></i> <%= @user.name %></h1>
+
+    <% if @can_have_relationship %>
+      <% if @relationship != nil %>
+        <%= link_to "Unfollow " + @user.name, @relationship, :method => :delete, class: 'btn btn-danger btn-small' %>
+      <% else %>
+        <%= link_to "Follow " + @user.name, new_user_relationship_path(:followed_id=> @user.id), class: 'btn btn-success btn-small' %>
+      <% end %>
+    <% end %>
+
+
+
+    <h3>Stats</h3>
     <p>Member Since: <%= @user.created_at.to_formatted_s(:month_and_year) %></p>
     <p>Tasks Logged: <%= @user.tasks_logged.count %></p>
+
+    <h3>Friends</h3>
+    <div class="list-group">
+    <% @user.user_relationships.each do |f| %>
+      <%= link_to f.followed_user.name, f.followed_user, :class => "list-group-item" %>
+    <% end %>
+    </div>
   </div>
 </div>
