@@ -21,7 +21,7 @@
       <% end %>
       <br>
       <%= link_to @task.logged_tasks.last do %>
-        First logged task was on <%= @task.logged_tasks.last.task_date.to_formatted_s(:short_date_and_time) %>
+        First logged task was on <%= @task.logged_tasks.last.task_date.to_formatted_s(:short_date) %>
       <% end %>
     <% end %>
   </div>
