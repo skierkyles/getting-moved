@@ -18,15 +18,17 @@
 @import 'jquery.fullPage';
 @import 'bootstrap-datetimepicker';
 
+@import 'variables';
+
 body {
-  font-family: 'Oswald', sans-serif;
+  font-family: $normal-font;
 }
 body p {
-  font-family: 'Oswald', sans-serif;
+  font-family: $normal-font;
 }
 
 .lobster {
-  font-family: 'Lobster', cursive;
+  font-family: $fancy-font;
 }
 
 .big-fa {
@@ -37,6 +39,31 @@ body p {
   text-align: center;
 }
 
+// Nav Bar
+.navbar {
+  background-color: $blue-color;
+
+  a.navbar-brand, .navbar-nav > li > a  {
+    color: $white-color !important;
+
+    &:hover {
+      color: $grey-color !important;
+    }
+  }
+
+  li.dropdown.open a.dropdown-toggle {
+    background-color: $dark-blue-color;
+  }
+}
+
+// Bootstrap overrides
+.btn-primary {
+  background-color: $blue-color;
+
+  &:hover, &:active {
+    background-color: $dark-blue-color;
+  }
+}
 
 // Date picker
 .ui-datepicker-inline {

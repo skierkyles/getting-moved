@@ -2,18 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import 'variables';
+
 #homePage {
 	text-align: center;
-}
-	#homePage {
+
+	h1 {
+		font-family: $fancy-font;
 	}
-	#homePage h1 {
-		font-family: 'Lobster', cursive;
-	}
-	#homePage h3 {
+
+	h3 {
 		margin-top: 5px;
 	}
-	#homePage .btn {
+
+	.btn {
 		margin: 30px;
 		padding: 20px 50px;
 	}
+}
