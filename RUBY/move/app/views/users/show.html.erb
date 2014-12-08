@@ -30,6 +30,12 @@
       <% @user.tasks_logged.each do |t| %>
         <%= render partial: "logged_tasks/logged_task_individual", locals: {logged_task: t} %>
       <% end %>
+      <% if @user.tasks_logged.count == 0 && current_user == @user %>
+        <div class="list-group-item">
+          <p>There's nothing in your stream. Try logging a task or following a friend!</p>
+        </div>
+
+      <% end %>
     </div>
   </div>
 

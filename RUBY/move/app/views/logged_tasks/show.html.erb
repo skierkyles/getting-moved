@@ -10,7 +10,10 @@
       <% end %>
       </small>
     </h1>
-    <h4><%= @logged_task.task_date %></h4>
+    <h4>
+      By <%= link_to @logged_task.task.user.name, @logged_task.task.user %> on
+      <%= @logged_task.task_date.to_formatted_s(:short_date) %>
+    </h4>
     <%= @logged_task.notes %>
   </div>
 
