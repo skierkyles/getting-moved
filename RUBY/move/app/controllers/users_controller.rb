@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
     @tasks = @user.tasks
 
-    @can_have_relationship = (current_user != @user)
+    @can_have_relationship = (current_user != @user) && (current_user != nil)
 
     if @can_have_relationship
       @relationship = current_user.has_relationship_with?(@user)
