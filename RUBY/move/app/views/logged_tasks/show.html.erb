@@ -21,7 +21,13 @@
     <h3>Comments</h3>
     <% @logged_task.comments.each do |c| %>
       <div class="panel panel-default">
-        <div class="panel-heading"><i class="fa <%= cycle('fa-comment', 'fa-comment-o') %>"></i> <%= c.user.name %> said <small style="position:absolute; right: 25px;"><%= time_ago_in_words(c.created_at) %> ago</small></div>
+        <div class="panel-heading">
+          <i class="fa <%= cycle('fa-comment', 'fa-comment-o') %>"></i>
+          <%= link_to c.user.name, c.user %> said
+          <small style="position:absolute; right: 25px;">
+            <%= time_ago_in_words(c.created_at) %> ago
+          </small>
+        </div>
         <div class="panel-body">
           <%= c.copy %>
         </div>
