@@ -1,11 +1,19 @@
-<h1>Log new <%= @parent_task.title %> task!</h1>
+<div class="row">
+  <div class="col-lg-4 col-md-3">
+  </div>
+  <div class="col-lg-4 col-md-6">
+    <h1>Log new <%= @parent_task.title %> task!</h1>
 
-<%= simple_form_for @logged_task do |f| %>
-  <%= f.hidden_field :task_id, :value => @logged_task.task_id %>
+    <%= simple_form_for @logged_task do |f| %>
+      <%= f.hidden_field :task_id, :value => @logged_task.task_id %>
 
-  <%= f.input :notes %>
+      <%= f.input :notes %>
 
-  <%= f.input :task_date, :as => :date_picker, :label => 'The date you did this task, DD/MM/YYYY' %>
+      <%= f.input :task_date, :as => :date_picker, :label => 'The date you did this task, DD/MM/YYYY' %>
 
-  <%= f.button :submit %>
-<% end %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+  <div class="col-lg-4 col-md-3">
+  </div>
+</div>
