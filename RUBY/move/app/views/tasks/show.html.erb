@@ -13,7 +13,7 @@
     <% end %>
   </div>
   <div class="col-md-4 panel">
-    <h1><%= @task.title %></h1>
+    <h1><%= @task.title %><small> by <%= link_to @task.user.name, @task.user %></small></h1>
     <p>Logged Tasks: <%= @task.logged_tasks.count %></p>
     <% if @task.logged_tasks.first %>
       <%= link_to @task.logged_tasks.first do %>
