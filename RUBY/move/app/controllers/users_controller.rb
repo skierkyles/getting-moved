@@ -4,6 +4,8 @@ class UsersController < ApplicationController
 
     @tasks = @user.tasks
 
+    @is_current_user = current_user == @user
+
     @can_have_relationship = (current_user != @user) && (current_user != nil)
 
     if @can_have_relationship
@@ -24,7 +26,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(new_params)
     if @user.save
       redirect_to @user
     else
@@ -32,8 +34,34 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+
+    puts "Update User: Things I'm trying to SAVE!"
+    puts update_params
+    puts "Updating this user"
+    puts @user
+    puts "is_valid? #{@user.valid?}"
+    puts "errors #{@user.errors.inspect}"
+
+    if @user.update(update_params)
+      redirect_to @user
+    else
+      render 'edit'
+    end
+  end
+
   private
-    def user_params
+    def update_params
+      allowed_params = params.require(:user).permit(:name, :password, :password_confirmation)
+      allowed_params.delete_if {|k,v| v.blank?}
+    end
+
+    def new_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
 end

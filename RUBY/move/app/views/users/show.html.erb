@@ -11,7 +11,7 @@
           <div class="btn-group" role="group">
             <%= link_to "View", t, class: 'btn btn-default btn-xs' %>
 
-            <% if @user == current_user %>
+            <% if @is_current_user %>
               <%= link_to "Log", new_logged_task_path(:task_id=> t.id), class: 'btn btn-default btn-xs' %>
             <% end %>
           </div>
@@ -19,7 +19,7 @@
         </div>
       <% end %>
     </div>
-    <% if @user == current_user %>
+    <% if @is_current_user %>
       <%= link_to :new_task , class: 'btn btn-success' do %>
         <i class="fa fa-check"></i> New Activity
       <% end %>
@@ -45,6 +45,14 @@
   <div class="col-md-4 panel">
     <h1><i class="fa fa-user"></i> <%= @user.name %></h1>
 
+    <% if @is_current_user %>
+      <div class="btn-group" role="group">
+        <%= link_to "Update My Account", edit_user_path, class: "btn btn-default btn-xs" %>
+        <a class="btn btn-default btn-xs">Other Thing</a>
+        <a class="btn btn-default btn-xs">Things</a>
+      </div>
+    <% end %>
+
     <% if @can_have_relationship %>
       <% if @relationship != nil %>
         <%= link_to "Unfollow " + @user.name, @relationship, :method => :delete, class: 'btn btn-danger btn-small' %>
@@ -52,8 +60,6 @@
         <%= link_to "Follow " + @user.name, new_user_relationship_path(:followed_id=> @user.id), class: 'btn btn-success btn-small' %>
       <% end %>
     <% end %>
-
-
 
     <h3>Stats</h3>
     <p>Member Since: <%= @user.created_at.to_formatted_s(:month_and_year) %></p>

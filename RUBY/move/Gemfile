@@ -56,6 +56,9 @@ gem 'simple_form'
 # Serve static pages
 gem 'high_voltage', '~> 2.2.1'
 
+# Keep track of files
+gem "paperclip", "~> 4.2"
+
 
 group :development do
   gem 'rails_layout'

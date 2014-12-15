@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :user_relationships
 
+  # has_attached_file :avatar, :styles => { :large => "1000x1000>", :thumb => "200x200>" }, :default_url => "/images/:style/missing.png"
+
   # Validators
   validates :name, presence: true, length: { maximum: 60 }
   validates :email, presence: true, uniqueness: { case_sensitive: false }
