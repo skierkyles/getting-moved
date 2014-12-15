@@ -9,7 +9,12 @@
         <span class="icon-bar"></span>
       </button>
       <!-- <a class="navbar-brand" href="#">Getting Moved</a> -->
-      <%= link_to "The Time Tracker" , root_path , class: "navbar-brand fancy-font" %>
+      <% if current_user %>
+        <%= link_to "The Time Tracker", current_user, class: "navbar-brand fancy-font" %>
+      <% else %>
+        <%= link_to "The Time Tracker", root_path , class: "navbar-brand fancy-font" %>
+      <% end %>
+
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
