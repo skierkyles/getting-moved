@@ -29,13 +29,8 @@ class User < ActiveRecord::Base
   end
 
   def tasks_logged
-    logged = []
-
-    self.tasks.each do |t|
-      logged += t.logged_tasks
-    end
-
-    logged
+    tasks = Task.where(:user => self)
+    LoggedTask.where(:task_id => tasks)
   end
 
   def has_relationship_with? user

@@ -13,9 +13,8 @@ class UsersController < ApplicationController
     end
 
     # Stats section
-    @month_by_month =  Hash[ @user.tasks_logged.group_by_month{|u| u.task_date }.map{|k, v| [k, v.size] } ]
-    puts "MonthByMonth"
-    puts @month_by_month
+    @month_by_month =  Hash[ @user.tasks_logged.to_a.group_by_month{|u| u.task_date }.map{|k, v| [k, v.size] } ]
+    @day_by_day =  Hash[ @user.tasks_logged.where(['task_date > ?', 1.week.ago]).to_a.group_by_day{|u| u.task_date }.map{|k, v| [k, v.size] } ]
   end
 
   def index
