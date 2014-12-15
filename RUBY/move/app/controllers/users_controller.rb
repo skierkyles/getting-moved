@@ -11,6 +11,11 @@ class UsersController < ApplicationController
     if @can_have_relationship
       @relationship = current_user.has_relationship_with?(@user)
     end
+
+    # Stats section
+    @month_by_month =  Hash[ @user.tasks_logged.group_by_month{|u| u.task_date }.map{|k, v| [k, v.size] } ]
+    puts "MonthByMonth"
+    puts @month_by_month
   end
 
   def index

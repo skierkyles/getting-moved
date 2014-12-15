@@ -59,6 +59,11 @@ gem 'high_voltage', '~> 2.2.1'
 # Keep track of files
 gem "paperclip", "~> 4.2"
 
+# Cool charts
+gem "chartkick"
+
+# Lets you do helpful helper methods like group_by_month
+gem 'groupdate'
 
 group :development do
   gem 'rails_layout'
