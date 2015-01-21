@@ -12,32 +12,32 @@ ActiveAdmin.register_page "Dashboard" do
 
     # Here is an example of a simple dashboard with columns and panels.
     #
-    columns do
-      column do
-        panel "Recent Tasks" do
-          ul do
-            Task.find :all do |task|
-              li task.title
-            end
-          end
-        end
-      end
+    # columns do
+    #   column do
+    #     panel "Recent Tasks" do
+    #       ul do
+    #         Task.find :all do |task|
+    #           li task.title
+    #         end
+    #       end
+    #     end
+    #   end
 
-      column do
-        panel "Recent Logs" do
-          ul do
-            LoggedTask.find :all do |lt|
-              li lt.notes
-            end
-          end
-        end
-      end
+    #   column do
+    #     panel "Recent Logs" do
+    #       ul do
+    #         LoggedTask.find :all do |lt|
+    #           li lt.notes
+    #         end
+    #       end
+    #     end
+    #   end
 
-      column do
-        panel "Info" do
-          para "Welcome to ActiveAdmin."
-        end
-      end
-    end
+      # column do
+      #   panel "Info" do
+      #     para "Welcome to ActiveAdmin."
+      #   end
+      # end
+    # end
   end # content
 end

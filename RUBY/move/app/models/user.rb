@@ -1,4 +1,9 @@
 class User < ActiveRecord::Base
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+
   # Relations
   has_many :tasks
   has_many :comments
@@ -7,26 +12,7 @@ class User < ActiveRecord::Base
   # has_attached_file :avatar, :styles => { :large => "1000x1000>", :thumb => "200x200>" }, :default_url => "/images/:style/missing.png"
 
   # Validators
-  validates :name, presence: true, length: { maximum: 60 }
-  validates :email, presence: true, uniqueness: { case_sensitive: false }
-  validates :password, length: { minimum: 6 }
-
-  # Normalize the emails to lowercase
-  before_save { self.email = email.downcase }
-
-  # User persistence
-  before_create :create_remember_token
-
-  # Password things. Much secure
-  has_secure_password
-
-  def User.new_remember_token
-    SecureRandom.urlsafe_base64
-  end
-
-  def User.digest(token)
-    Digest::SHA1.hexdigest(token.to_s)
-  end
+  # validates :name, presence: true, length: { maximum: 60 }
 
   def tasks_logged
     tasks = Task.where(:user => self)
@@ -36,9 +22,4 @@ class User < ActiveRecord::Base
   def has_relationship_with? user
     rel = UserRelationship.find_by(:user => self, :followed_user => user)
   end
-
-  private
-    def create_remember_token
-      self.remember_token = User.digest(User.new_remember_token)
-    end
 end

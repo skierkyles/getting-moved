@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'comment/new'
 
   ActiveAdmin.routes(self)
@@ -24,11 +25,11 @@ Rails.application.routes.draw do
 
   # The user system
   resources :users
-  resources :sessions, only: [:new, :create, :destroy]
+  # resources :sessions, only: [:new, :create, :destroy]
 
-  match '/signup',  to: 'users#new',            via: 'get'
-  match '/signin',  to: 'sessions#new',         via: 'get'
-  match '/signout', to: 'sessions#destroy',     via: 'get'
+  # match '/signup',  to: 'users#new',            via: 'get'
+  # match '/signin',  to: 'sessions#new',         via: 'get'
+  # match '/signout', to: 'sessions#destroy',     via: 'get'
 
   # Example resource route with options:
   #   resources :products do
