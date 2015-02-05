@@ -7,6 +7,46 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "RUBY/move/app/controllers/api/api_controller.rb",
+			"settings":
+			{
+				"buffer_size": 44,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "RUBY/move/app/controllers/api/api_tasks_controller.rb",
+			"settings":
+			{
+				"buffer_size": 226,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "RUBY/move/app/views/tasks/new.html.erb",
+			"settings":
+			{
+				"buffer_size": 607,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "RUBY/move/app/views/welcome/index.html.erb",
+			"settings":
+			{
+				"buffer_size": 518,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "RUBY/move/app/views/layouts/_navigation.html.erb",
+			"settings":
+			{
+				"buffer_size": 2084,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -35,10 +75,22 @@
 	},
 	"expanded_folders":
 	[
-		"/home/kyle/Development/getting-moved"
+		"/home/kyle/Development/getting-moved",
+		"/home/kyle/Development/getting-moved/RUBY",
+		"/home/kyle/Development/getting-moved/RUBY/move",
+		"/home/kyle/Development/getting-moved/RUBY/move/app",
+		"/home/kyle/Development/getting-moved/RUBY/move/app/controllers",
+		"/home/kyle/Development/getting-moved/RUBY/move/app/controllers/api",
+		"/home/kyle/Development/getting-moved/RUBY/move/app/views",
+		"/home/kyle/Development/getting-moved/RUBY/move/app/views/layouts",
+		"/home/kyle/Development/getting-moved/RUBY/move/app/views/logged_tasks",
+		"/home/kyle/Development/getting-moved/RUBY/move/app/views/tasks",
+		"/home/kyle/Development/getting-moved/RUBY/move/app/views/welcome"
 	],
 	"file_history":
 	[
+		"/home/kyle/Development/getting-moved/RUBY/move/app/views/logged_tasks/show.html.erb",
+		"/home/kyle/Development/getting-moved/RUBY/move/app/views/layouts/application.html.erb"
 	],
 	"find":
 	{
@@ -73,8 +125,155 @@
 	"groups":
 	[
 		{
+			"selected": 3,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "RUBY/move/app/controllers/api/api_controller.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 44,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "RUBY/move/app/controllers/api/api_tasks_controller.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 226,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								226,
+								226
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "RUBY/move/app/views/tasks/new.html.erb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 607,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								22,
+								22
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "RUBY/move/app/views/welcome/index.html.erb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 518,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								518,
+								518
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "RUBY/move/app/views/layouts/_navigation.html.erb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2084,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1991,
+								1991
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 459.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -151,7 +350,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 150.0,
+	"side_bar_width": 248.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
