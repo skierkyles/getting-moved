@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('move', ['ionic', 'move.controllers'])
+angular.module('move', ['ionic', 'move.controllers', 'move.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -37,6 +37,11 @@ angular.module('move', ['ionic', 'move.controllers'])
       'menuContent': {
         templateUrl: "templates/activities.html",
         controller: 'ActivitiesCtrl'
+      }
+    },
+    resolve: {
+      resolvedTasks: function (Task) {
+        return Task.getTasks();
       }
     }
   })

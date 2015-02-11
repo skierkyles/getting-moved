@@ -8,7 +8,8 @@ class ApiTasksController < ApiController
 	def show
 		# Find the LoggedTasks related to the
 		# Task that this id specifies.
-
-		expose Task.find(params[:id]).logged_tasks
+		# TODO: Figure out how to expose more information related to this.
+		puts Task.find(params[:id]).logged_tasks
+		resource Task.find(params[:id])
 	end
 end

@@ -33,7 +33,8 @@ angular.module('move.controllers', [])
   };
 })
 
-.controller('ActivitiesCtrl', function($scope) {
+.controller('ActivitiesCtrl', function($scope, resolvedTasks) {
+  $scope.activities = resolvedTasks;
 })
 
 .controller('ActivityCtrl', function($scope, $stateParams) {

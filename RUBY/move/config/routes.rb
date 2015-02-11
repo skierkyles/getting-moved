@@ -28,7 +28,8 @@ Rails.application.routes.draw do
   # resources :sessions, only: [:new, :create, :destroy]
 
   api :version => 1 do
-    resources :api_tasks, :only => [:index, :show] 
+    resources :api_tasks, :only => [:index, :show]
+    resources :api_logged_tasks, :only => [:index, :show]
   end
 
   # match '/signup',  to: 'users#new',            via: 'get'
