@@ -21,3 +21,19 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+@font-face {
+    font-family: 'RockSaltRegular';
+    src: url('rocksalt/RockSalt-webfont.eot');
+    src: url('rocksalt/RockSalt-webfont.eot?#iefix') format('embedded-opentype'),
+         url('rocksalt/RockSalt-webfont.woff') format('woff'),
+         url('rocksalt/RockSalt-webfont.ttf') format('truetype'),
+         url('rocksalt/RockSalt-webfont.svg#rock_saltregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+$fancy-font: "RockSaltRegular";
+
+.title {
+  font-family: $fancy-font;
+}
