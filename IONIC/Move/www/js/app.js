@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-var app = angular.module('move', ['ionic', 'move.controllers', 'move.services']);
+var app = angular.module('move', ['ionic', 'move.controllers', 'move.services', 'move.directives']);
 
 app.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -55,6 +55,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
       }
     },
     resolve: {
+      resolvedTask: function ($stateParams, Task) {
+        var taskId = $stateParams.activityId;
+
+        return Task.getTask(taskId);
+      },
       resolvedLoggedTasks: function ($stateParams, Task) {
         var taskId = $stateParams.activityId;
 
@@ -69,12 +74,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
 app.filter('date2', function($filter) {
   var suffixes = ["th", "st", "nd", "rd"];
   return function(input, format) {
-    console.clear();
-    console.log(input, format);
     var dtfilter = $filter('date')(input, format);
     var day = parseInt($filter('date')(input, 'dd'));
     var relevantDigits = (day < 30) ? day % 20 : day % 30;
-    console.log(day, relevantDigits);
     var suffix = (relevantDigits <= 3) ? suffixes[relevantDigits] : suffixes[0];
     return dtfilter.replace('oo', suffix);
     //return dtfilter+suffix;

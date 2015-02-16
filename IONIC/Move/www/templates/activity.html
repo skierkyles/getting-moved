@@ -1,14 +1,25 @@
-<ion-view view-title="Activity">
+<ion-view view-title="{{ activity.title }}">
   <ion-content>
-    <h1>Activity</h1>
-    <div class="list card" ng-repeat="task in logged_tasks">
-      <div class="item item-text-wrap" >
-        {{ task.notes }}
+    <div id="LogTask" full-screen-section>
+      <div class="list">
+        <label class="item item-input">
+          <textarea placeholder="Notes"></textarea>
+        </label>
       </div>
-      <div class="item item-text-wrap" >
-        {{ task.task_date | date2 : "MMM doo yyyy"}}
-      </div>
+      <button class="button button-full button-positive">
+        Log new {{ activity.title }} task
+      </button>
+    </div>
 
+    <div id="TaskHistory">
+      <div class="list card" ng-repeat="task in logged_tasks">
+        <div class="item item-text-wrap" >
+          {{ task.notes }}
+        </div>
+        <div class="item item-text-wrap" >
+          {{ task.task_date | date2 : "MMM doo yyyy"}}
+        </div>
+      </div>
     </div>
   </ion-content>
 </ion-view>

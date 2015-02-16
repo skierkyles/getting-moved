@@ -1,6 +1,6 @@
-angular.module('move.controllers', [])
+var controllers = angular.module('move.controllers', []);
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+controllers.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   // Form data for the login modal
   $scope.loginData = {};
 
@@ -31,12 +31,13 @@ angular.module('move.controllers', [])
       $scope.closeLogin();
     }, 1000);
   };
-})
+});
 
-.controller('ActivitiesCtrl', function($scope, resolvedTasks) {
+controllers.controller('ActivitiesCtrl', function($scope, resolvedTasks) {
   $scope.activities = resolvedTasks;
-})
+});
 
-.controller('ActivityCtrl', function($scope, resolvedLoggedTasks) {
+controllers.controller('ActivityCtrl', function($scope, resolvedTask, resolvedLoggedTasks) {
+  $scope.activity = resolvedTask;
   $scope.logged_tasks = resolvedLoggedTasks;
 });
