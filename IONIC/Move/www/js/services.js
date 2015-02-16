@@ -11,7 +11,10 @@ move_services.factory('Task', function () {
       return json.response;
     },
     getLoggedTasks: function (taskId) {
+      var logged_task = '{"response":{"id":2,"notes":"Climbing at the GYM","created_at":"2015-02-10T23:15:41.580-07:00","updated_at":"2015-02-10T23:15:41.580-07:00","task_id":2,"task_date":"2015-02-06"}}';
+      var json = angular.fromJson(logged_task);
 
+      return json.response;
     }
   }
 });
