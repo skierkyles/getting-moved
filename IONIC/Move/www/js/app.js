@@ -4,9 +4,9 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('move', ['ionic', 'move.controllers', 'move.services'])
+var app = angular.module('move', ['ionic', 'move.controllers', 'move.services']);
 
-.run(function($ionicPlatform) {
+app.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -18,9 +18,9 @@ angular.module('move', ['ionic', 'move.controllers', 'move.services'])
       StatusBar.styleDefault();
     }
   });
-})
+});
 
-.config(function($stateProvider, $urlRouterProvider) {
+app.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
   .state('app', {
@@ -53,8 +53,30 @@ angular.module('move', ['ionic', 'move.controllers', 'move.services'])
         templateUrl: "templates/activity.html",
         controller: 'ActivityCtrl'
       }
+    },
+    resolve: {
+      resolvedLoggedTasks: function ($stateParams, Task) {
+        var taskId = $stateParams.activityId;
+
+        return Task.getLoggedTasks(taskId);
+      }
     }
   });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/activities');
+});
+
+app.filter('date2', function($filter) {
+  var suffixes = ["th", "st", "nd", "rd"];
+  return function(input, format) {
+    console.clear();
+    console.log(input, format);
+    var dtfilter = $filter('date')(input, format);
+    var day = parseInt($filter('date')(input, 'dd'));
+    var relevantDigits = (day < 30) ? day % 20 : day % 30;
+    console.log(day, relevantDigits);
+    var suffix = (relevantDigits <= 3) ? suffixes[relevantDigits] : suffixes[0];
+    return dtfilter.replace('oo', suffix);
+    //return dtfilter+suffix;
+  };
 });

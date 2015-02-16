@@ -1,5 +1,14 @@
 <ion-view view-title="Activity">
   <ion-content>
     <h1>Activity</h1>
+    <div class="list card" ng-repeat="task in logged_tasks">
+      <div class="item item-text-wrap" >
+        {{ task.notes }}
+      </div>
+      <div class="item item-text-wrap" >
+        {{ task.task_date | date2 : "MMM doo yyyy"}}
+      </div>
+
+    </div>
   </ion-content>
 </ion-view>

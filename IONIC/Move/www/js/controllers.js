@@ -37,5 +37,6 @@ angular.module('move.controllers', [])
   $scope.activities = resolvedTasks;
 })
 
-.controller('ActivityCtrl', function($scope, $stateParams) {
+.controller('ActivityCtrl', function($scope, resolvedLoggedTasks) {
+  $scope.logged_tasks = resolvedLoggedTasks;
 });
