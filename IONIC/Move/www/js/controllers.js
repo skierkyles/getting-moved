@@ -41,3 +41,7 @@ controllers.controller('ActivityCtrl', function($scope, resolvedTask, resolvedLo
   $scope.activity = resolvedTask;
   $scope.logged_tasks = resolvedLoggedTasks;
 });
+
+controllers.controller('AccountCtrl', function($scope) {
+  
+});

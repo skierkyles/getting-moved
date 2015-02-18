@@ -1,14 +1,24 @@
 <ion-view view-title="{{ activity.title }}">
   <ion-content>
     <div id="LogTask" full-screen-section>
-      <div class="list">
-        <label class="item item-input">
-          <textarea placeholder="Notes"></textarea>
-        </label>
+      <div class="row">
+        <div class="col">
+          <label class="item item-input">
+            <textarea placeholder="Notes"></textarea>
+          </label>
+        </div>
       </div>
-      <button class="button button-full button-positive">
-        Log new {{ activity.title }} task
-      </button>
+      <div class="row">
+        <button class="button button-full button-positive">
+          Log new {{ activity.title }} task
+        </button>
+      </div>
+      <div class="row bottom">
+          <i class="icon ion-chevron-up"></i>
+      </div>
+      <div class="row bottom-text">
+        <h4>Slide Up</h4>
+      </div>
     </div>
 
     <div id="TaskHistory">

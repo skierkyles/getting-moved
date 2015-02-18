@@ -5,7 +5,7 @@ directives.directive("fullScreenSection", function () {
     console.log("Hey", element);
     console.log(screen.height);
 
-    element[0].style.height = window.height;
+    element[0].style.height = screen.height + "px";
   };
 
   return {

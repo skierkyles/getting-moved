@@ -15,12 +15,6 @@ $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
 
-// The path for our ionicons font files, relative to the built CSS in www/css
-$ionicons-font-path: "../lib/ionic/fonts" !default;
-
-// Include all of Ionic
-@import "www/lib/ionic/scss/ionic";
-
 @font-face {
     font-family: 'RockSaltRegular';
     src: url('rocksalt/RockSalt-webfont.eot');
@@ -32,8 +26,19 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
     font-style: normal;
 }
 
+@font-face {
+  font-family:"Oswald";
+  src:url("oswald/Oswald.eot?") format("eot"),
+      url("oswald/Oswald.woff") format("woff"),
+      url("oswald/Oswald.ttf") format("truetype"),
+      url("oswald/Oswald.svg#Oswald") format("svg");
+  font-weight:normal;
+  font-style:normal;
+}
+
 // My apps custom vars
-$fancy-font: "RockSaltRegular";
+$normal-font: 'Oswald', sans-serif;
+$fancy-font: 'RockSaltRegular', cursive;
 
 $blue-color: #3299bb;
 $dark-blue-color: #2c86a3;
@@ -43,16 +48,39 @@ $black-color: #424242;
 $orange-color: #ff9900;
 // End custom vars
 
+// My changing of the 'Stable' colors.
+$stable:                          $blue-color !default;
+$button-stable-text:              $white-color !default;
 
-.bar.bar-stable .title {
-  font-family: $fancy-font;
-  color: $white-color;
+$positive:                        $dark-blue-color !default;
+
+$font-family-base:                $normal-font !default;
+$headings-font-family:            $fancy-font !default;
+
+.bar {
+  .title {
+    font-family: $headings-font-family;
+  }
 }
 
-.bar.bar-stable {
-  background-color: $blue-color;
+#LogTask {
+  position: relative;
+  .bottom {
+    position: absolute;
+    bottom: 90px;
+    left: 48%;
+    width: 12px;
+  }
+
+  .bottom-text {
+    position: absolute;
+    bottom: 50px;
+    left: 37%;
+  }
 }
 
-.bar.bar-stable .button {
-  color: $white-color;
-}
+// The path for our ionicons font files, relative to the built CSS in www/css
+$ionicons-font-path: "../lib/ionic/fonts" !default;
+
+// Include all of Ionic
+@import "www/lib/ionic/scss/ionic";

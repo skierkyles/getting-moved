@@ -66,6 +66,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
         return Task.getLoggedTasks(taskId);
       }
     }
+  })
+
+  .state('app.account', {
+    url: "/account/",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/account.html",
+        controller: 'AccountCtrl',
+      }
+    }
   });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/activities');
