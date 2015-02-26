@@ -42,6 +42,9 @@ $dark:                            #444 !default;
     bottom: 50px;
     left: 37%; }
 
+#Account {
+  text-align: center; }
+
 /*!
   Ionicons, v1.5.2
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/

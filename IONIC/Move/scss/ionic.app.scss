@@ -87,6 +87,10 @@ $menu-bg:                         $blue-color !default;
   }
 }
 
+#Account {
+  text-align: center;
+}
+
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
