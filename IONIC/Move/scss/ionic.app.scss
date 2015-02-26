@@ -50,12 +50,20 @@ $orange-color: #ff9900;
 
 // My changing of the 'Stable' colors.
 $stable:                          $blue-color !default;
+$button-stable-bg:                $blue-color !default;
+$button-stable-border:            darken($blue-color, 10%) !default;
+
+$button-stable-active-bg:         $dark-blue-color !default;
+$button-stable-active-border:     darken($blue-color, 10%) !default;
+
 $button-stable-text:              $white-color !default;
 
 $positive:                        $dark-blue-color !default;
 
 $font-family-base:                $normal-font !default;
 $headings-font-family:            $fancy-font !default;
+
+$menu-bg:                         $blue-color !default;
 
 .bar {
   .title {
