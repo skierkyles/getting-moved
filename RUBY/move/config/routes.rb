@@ -32,6 +32,12 @@ Rails.application.routes.draw do
     resources :api_logged_tasks, :only => [:index, :show]
   end
 
+  namespace :api do
+    scope :v1 do
+      mount_devise_token_auth_for 'User', at: 'auth'
+    end
+  end
+
   # match '/signup',  to: 'users#new',            via: 'get'
   # match '/signin',  to: 'sessions#new',         via: 'get'
   # match '/signout', to: 'sessions#destroy',     via: 'get'

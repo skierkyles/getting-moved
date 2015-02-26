@@ -69,6 +69,11 @@ gem 'devise'
 
 gem 'rocket_pants', '~> 1.0'
 
+gem 'devise_token_auth'
+gem 'omniauth'
+
+gem 'rack-cors', :require => 'rack/cors'
+
 group :development do
   gem 'rails_layout'
 end
