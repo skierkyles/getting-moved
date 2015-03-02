@@ -30,12 +30,12 @@ Rails.application.routes.draw do
   api :version => 1 do
     resources :api_tasks, :only => [:index, :show]
     resources :api_logged_tasks, :only => [:index, :show]
-  end
 
-  namespace :api do
-    scope :v1 do
-      mount_devise_token_auth_for 'User', at: 'auth'
+    # https://github.com/abhidsm/devise-token-api
+    devise_scope :user do
+      resources :api_sessions
     end
+    # devise_for :users
   end
 
   # match '/signup',  to: 'users#new',            via: 'get'

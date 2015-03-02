@@ -24,7 +24,7 @@ module Move
       #{config.root}/app/controllers/api
     )
 
-    config.middleware.use Rack::Cors do
+    config.middleware.insert_before 0, "Rack::Cors", :debug => true, :logger => (-> { Rails.logger }) do
       allow do
         origins '*'
         resource '*',

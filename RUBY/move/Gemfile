@@ -69,8 +69,7 @@ gem 'devise'
 
 gem 'rocket_pants', '~> 1.0'
 
-gem 'devise_token_auth'
-gem 'omniauth'
+gem 'devise-token_authenticatable'
 
 gem 'rack-cors', :require => 'rack/cors'
 

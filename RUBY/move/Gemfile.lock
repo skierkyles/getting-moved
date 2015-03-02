@@ -82,9 +82,8 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
-    devise_token_auth (0.1.30)
-      devise (~> 3.3)
-      rails (~> 4.1)
+    devise-token_authenticatable (0.3.0)
+      devise (~> 3.4.0)
     erubis (2.7.0)
     execjs (2.2.1)
     font-awesome-rails (4.2.0.0)
@@ -125,9 +124,6 @@ GEM
     moneta (0.8.0)
     multi_json (1.10.1)
     multi_xml (0.5.5)
-    omniauth (1.2.2)
-      hashie (>= 1.2, < 4)
-      rack (~> 1.0)
     orm_adapter (0.5.0)
     paperclip (4.2.1)
       activemodel (>= 3.0.0)
@@ -226,13 +222,12 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   datetimepicker-rails!
   devise
-  devise_token_auth
+  devise-token_authenticatable
   font-awesome-rails
   groupdate
   high_voltage (~> 2.2.1)
   jquery-rails
   momentjs-rails
-  omniauth
   paperclip (~> 4.2)
   rack-cors
   rails (= 4.1.6)
