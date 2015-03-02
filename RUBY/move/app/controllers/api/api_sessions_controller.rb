@@ -7,6 +7,11 @@ class ApiSessionsController < Devise::SessionsController
   respond_to :json
 
   def create
+    puts "Got things!"
+    puts params
+    puts params[:email] == nil
+    puts params[:user][:password]
+
     resource = User.find_for_database_authentication(:email => params[:user][:email])
     return failure unless resource
 

@@ -20,7 +20,12 @@ app.run(function($ionicPlatform) {
   });
 });
 
-app.config(function($stateProvider, $urlRouterProvider) {
+app.config(function($stateProvider, $urlRouterProvider, $authProvider) {
+  $authProvider.configure({
+    apiUrl: 'http://0.0.0.0:3000/1',
+    emailSignInPath: '/api_sessions',
+  });
+
   $stateProvider
 
   .state('app', {

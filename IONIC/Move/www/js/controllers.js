@@ -1,6 +1,6 @@
 var controllers = angular.module('move.controllers', []);
 
-controllers.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+controllers.controller('AppCtrl', function($scope, $ionicModal, $auth) {
   // Form data for the login modal
   $scope.loginData = {};
 
@@ -25,11 +25,16 @@ controllers.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   $scope.doLogin = function() {
     console.log('Doing login', $scope.loginData);
 
+    $auth.submitLogin($scope.loginData)
+      .then(function (resp) {
+        console.log("Successfuly Logged Inn");
+      })
+      .catch(function (resp) {
+        console.log("Failed Logged In");
+      });
+
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
   };
 });
 
@@ -43,5 +48,5 @@ controllers.controller('ActivityCtrl', function($scope, resolvedTask, resolvedLo
 });
 
 controllers.controller('AccountCtrl', function($scope) {
-  
+
 });
