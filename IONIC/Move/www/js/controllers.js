@@ -28,9 +28,12 @@ controllers.controller('AppCtrl', function($scope, $ionicModal, $auth) {
     $auth.submitLogin($scope.loginData)
       .then(function (resp) {
         console.log("Successfuly Logged Inn");
+        console.log(resp);
+        $scope.modal.hide();
       })
       .catch(function (resp) {
         console.log("Failed Logged In");
+        console.log(resp);
       });
 
     // Simulate a login delay. Remove this and replace with your login

@@ -24,6 +24,9 @@ app.config(function($stateProvider, $urlRouterProvider, $authProvider) {
   $authProvider.configure({
     apiUrl: 'http://0.0.0.0:3000/1',
     emailSignInPath: '/api_sessions',
+    handleLoginResponse: function (response) {
+      return response;
+    },
   });
 
   $stateProvider

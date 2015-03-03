@@ -7,18 +7,14 @@ class ApiSessionsController < Devise::SessionsController
   respond_to :json
 
   def create
-    puts "Got things!"
-    puts params
-    puts params[:email] == nil
-    puts params[:user][:password]
-
-    resource = User.find_for_database_authentication(:email => params[:user][:email])
+    resource = User.find_for_database_authentication(:email => params[:email])
     return failure unless resource
 
-    if resource.valid_password?(params[:user][:password])
+    if resource.valid_password?(params[:password])
       sign_in(:user, resource)
       resource.ensure_authentication_token!
-      render :json=> {:success => true, :token => resource.authentication_token}
+      puts current_user
+      render :json=> {:success => true, :token => resource.authentication_token, :user => current_user}
       return
     end
     failure
