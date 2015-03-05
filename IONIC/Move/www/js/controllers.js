@@ -1,6 +1,6 @@
 var controllers = angular.module('move.controllers', []);
 
-controllers.controller('AppCtrl', function($scope, $ionicModal, $auth) {
+controllers.controller('AppCtrl', function($scope, $ionicModal, $auth, UserService) {
   // Form data for the login modal
   $scope.loginData = {};
 
@@ -29,6 +29,7 @@ controllers.controller('AppCtrl', function($scope, $ionicModal, $auth) {
       .then(function (resp) {
         console.log("Successfuly Logged Inn");
         console.log(resp);
+        UserService.loadUser(resp);
         $scope.modal.hide();
       })
       .catch(function (resp) {

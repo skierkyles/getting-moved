@@ -34,12 +34,12 @@ $dark:                            #444 !default;
   position: relative; }
   #LogTask .bottom {
     position: absolute;
-    bottom: 90px;
+    bottom: 140px;
     left: 48%;
     width: 12px; }
   #LogTask .bottom-text {
     position: absolute;
-    bottom: 50px;
+    bottom: 100px;
     left: 37%; }
 
 #Account {

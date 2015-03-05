@@ -36,3 +36,22 @@ move_services.factory('Task', function () {
 
   return service;
 });
+
+move_services.service('UserService', function () {
+    var auth_token = null;
+
+    var user = {
+      id: null,
+      name: null,
+      email: null,
+    }
+
+    return {
+      loadUser: function (data) {
+        auth_token = data.token;
+
+
+        console.log(data);
+      }
+    }
+});
