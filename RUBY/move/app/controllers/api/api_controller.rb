@@ -1,3 +1,3 @@
-class ApiController < RocketPants::Base
+class ApiController < ActionController::Base
 
 end

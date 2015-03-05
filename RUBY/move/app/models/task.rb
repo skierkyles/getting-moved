@@ -16,4 +16,10 @@ class Task < ActiveRecord::Base
       return "Never"
     end
   end
+
+  def hashed
+    {:id => self.id, :title => self.title,
+      :created_at => self.created_at, :updated_at => self.updated_at,
+      :user_id => self.user_id, :logged_tasks => self.logged_tasks }
+  end
 end

@@ -13,7 +13,6 @@ class ApiSessionsController < Devise::SessionsController
     if resource.valid_password?(params[:password])
       sign_in(:user, resource)
       resource.ensure_authentication_token!
-      puts current_user
       render :json=> {:success => true, :token => resource.authentication_token, :user => current_user}
       return
     end

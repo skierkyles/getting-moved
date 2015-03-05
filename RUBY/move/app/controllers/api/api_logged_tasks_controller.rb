@@ -1,14 +1,7 @@
 class ApiLoggedTasksController < ApiController
-  version 1
-
-  def index
-    expose LoggedTask.all
-  end
-
   def show
-    # Find the LoggedTasks related to the
-    # Task that this id specifies.
-    # TODO: Figure out how to expose more information related to this.
-    expose Task.find(params[:id]).logged_tasks
+    logged_task = LoggedTask.find(params[:id])
+
+    render :json=> {:success => true, :logged_task => logged_task.hashed}
   end
 end
