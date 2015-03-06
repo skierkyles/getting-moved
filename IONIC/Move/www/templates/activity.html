@@ -22,9 +22,11 @@
     </div>
 
     <div id="TaskHistory">
-      <div class="list card" ng-repeat="task in logged_tasks">
+      <div class="list card" ng-repeat="task in activity.logged_tasks">
         <div class="item item-text-wrap" >
-          {{ task.notes }}
+          <a ui-sref="app.logged_task({activityId: task.id})">
+            {{ task.notes }}
+          </a>
         </div>
         <div class="item item-text-wrap" >
           {{ task.task_date | date2 : "MMM doo yyyy"}}

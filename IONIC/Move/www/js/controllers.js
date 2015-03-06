@@ -36,9 +36,6 @@ controllers.controller('AppCtrl', function($scope, $ionicModal, $auth, UserServi
         console.log("Failed Logged In");
         console.log(resp);
       });
-
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
   };
 });
 
@@ -46,9 +43,13 @@ controllers.controller('ActivitiesCtrl', function($scope, resolvedTasks) {
   $scope.activities = resolvedTasks;
 });
 
-controllers.controller('ActivityCtrl', function($scope, resolvedTask, resolvedLoggedTasks) {
+controllers.controller('ActivityCtrl', function($scope, $ionicModal, resolvedTask) {
+  console.log(resolvedTask);
   $scope.activity = resolvedTask;
-  $scope.logged_tasks = resolvedLoggedTasks;
+});
+
+controllers.controller('LoggedTaskCtrl', function($scope, resolvedTask) {
+
 });
 
 controllers.controller('AccountCtrl', function($scope) {

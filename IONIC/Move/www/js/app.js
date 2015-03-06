@@ -4,7 +4,8 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-var app = angular.module('move', ['ionic', 'move.controllers', 'move.services', 'move.directives', 'ng-token-auth']);
+var app = angular.module('move', ['ionic', 'move.controllers', 'move.services',
+                          'move.directives', 'ng-token-auth']);
 
 app.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -67,11 +68,23 @@ app.config(function($stateProvider, $urlRouterProvider, $authProvider) {
         var taskId = $stateParams.activityId;
 
         return Task.getTask(taskId);
-      },
-      resolvedLoggedTasks: function ($stateParams, Task) {
+      }
+    }
+  })
+
+  .state('app.logged_task', {
+    url: "/activities/logged_tasks/:activityId",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/logged_task_detail.html",
+        controller: "LoggedTaskCtrl",
+      }
+    },
+    resolve: {
+      resolvedTask: function ($stateParams, Task) {
         var taskId = $stateParams.activityId;
 
-        return Task.getLoggedTasks(taskId);
+        return Task.getDetailedTask(taskId);
       }
     }
   })
