@@ -2,13 +2,15 @@
 
 var move_services = angular.module('move.services', []);
 
-move_services.factory('Task', function ($q, $http) {
+move_services.factory('Task', function ($q, $http, UserService) {
   var service = {};
 
   service.getTasks = function () {
     var dfd = $q.defer();
 
-    $http.get('http://0.0.0.0:3000/1/api_tasks/1').then(
+    var id = UserService.getUser().id;
+
+    $http.get('http://0.0.0.0:3000/1/api_tasks/' + id).then(
       function (success) {
         dfd.resolve(success.data.tasks);
       },
@@ -57,6 +59,9 @@ move_services.factory('Task', function ($q, $http) {
   return service;
 });
 
+var USER_DATA = "USER_DATA_343";
+var AUTH_TOKEN = "AUTH_DATA_2041";
+
 move_services.service('UserService', function () {
     var auth_token = null;
 
@@ -64,14 +69,41 @@ move_services.service('UserService', function () {
       id: null,
       name: null,
       email: null,
+      created_at: null,
     }
 
     return {
-      loadUser: function (data) {
+      setUserData: function (data) {
         auth_token = data.token;
+        user.id = data.user.id;
+        user.name = data.user.name;
+        user.email = data.user.email;
+        user.created_at = data.user.created_at;
 
-
-        console.log(data);
+        this.saveUser();
+      },
+      saveUser: function () {
+        setObject(AUTH_TOKEN, auth_token);
+        setObject(USER_DATA, user);
+      },
+      getAuthToken: function () {
+        if (auth_token === null) {
+          auth_token = getObject(AUTH_TOKEN);
+        }
+        return auth_token;
+      },
+      getUser: function () {
+        if (user.id === null) {
+          user = getObject(USER_DATA);
+        }
+        return user;
       }
     }
 });
+
+function setObject(key, value) {
+  window.localStorage[key] = JSON.stringify(value);
+}
+function getObject(key) {
+  return JSON.parse(window.localStorage[key] || '{}');
+}

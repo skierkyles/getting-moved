@@ -23,7 +23,7 @@
       <div class="panel panel-default">
         <div class="panel-heading">
           <i class="fa <%= cycle('fa-comment', 'fa-comment-o') %>"></i>
-          <%= link_to c.user.name, c.user %> said
+          <%= link_to c.user.found_name, c.user %> said
           <small style="position:absolute; right: 25px;">
             <%= time_ago_in_words(c.created_at) %> ago
           </small>

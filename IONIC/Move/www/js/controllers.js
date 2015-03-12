@@ -27,14 +27,20 @@ controllers.controller('AppCtrl', function($scope, $ionicModal, $auth, UserServi
 
     $auth.submitLogin($scope.loginData)
       .then(function (resp) {
-        console.log("Successfuly Logged Inn");
+        console.log("Successfuly Logged In");
         console.log(resp);
-        UserService.loadUser(resp);
+
+        $scope.form_has_errors = false;
+
+        UserService.setUserData(resp);
         $scope.modal.hide();
       })
       .catch(function (resp) {
         console.log("Failed Logged In");
         console.log(resp);
+
+        $scope.form_has_errors = true;
+        $scope.error_msg = resp.errors[0];
       });
   };
 });
@@ -49,9 +55,10 @@ controllers.controller('ActivityCtrl', function($scope, $ionicModal, resolvedTas
 });
 
 controllers.controller('LoggedTaskCtrl', function($scope, resolvedTask) {
-
+  $scope.task = resolvedTask;
 });
 
-controllers.controller('AccountCtrl', function($scope) {
-
+controllers.controller('AccountCtrl', function($scope, resolvedUser) {
+  console.log(resolvedUser);
+  $scope.data = resolvedUser;
 });

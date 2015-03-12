@@ -2,19 +2,25 @@
   <ion-content>
     <div class="row">
       <div class="col">
-        <h1><i class="icon ion-person"></i> Karl</h1>
+        <h1><i class="icon ion-person"></i> {{ data.user.email }}</h1>
       </div>
     </div>
 
     <div class="row">
       <div class="col">
-        <h4>Member Since: Jan 2014</h4>
+        <h4>Member Since: {{ data.user.created_at | date : 'mediumDate' }}</h4>
       </div>
     </div>
 
     <div class="row">
       <div class="col">
         <h4>Tasks Logged: 5</h4>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <p>Auth: {{ data.auth }}</p>
       </div>
     </div>
   </ion-content>

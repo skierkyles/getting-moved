@@ -90,11 +90,17 @@ app.config(function($stateProvider, $urlRouterProvider, $authProvider) {
   })
 
   .state('app.account', {
+    cache: false,
     url: "/account/",
     views: {
       'menuContent': {
         templateUrl: "templates/account.html",
         controller: 'AccountCtrl',
+      }
+    },
+    resolve: {
+      resolvedUser: function (UserService) {
+        return { user: UserService.getUser(), auth: UserService.getAuthToken() };
       }
     }
   });

@@ -14,6 +14,14 @@ class User < ActiveRecord::Base
   # Validators
   # validates :name, presence: true, length: { maximum: 60 }
 
+  def found_name
+    if self.name != nil
+      self.name
+    else
+      self.email
+    end
+  end
+
   def tasks_logged
     tasks = Task.where(:user => self)
     LoggedTask.where(:task_id => tasks)
