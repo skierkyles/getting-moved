@@ -1,3 +1,23 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.show-user {
+  h1 {
+    text-transform: uppercase;
+    font-family: $fancy-font;
+    font-size: 20px;
+  }
+
+  h3, h4 {
+    text-transform: uppercase;
+  }
+
+  .activity-list {
+
+  }
+
+  .btn {
+    text-transform: uppercase;
+  }
+}

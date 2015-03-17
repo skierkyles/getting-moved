@@ -10,8 +10,8 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  */
-@import 'simple';
 @import 'welcome';
+@import 'users';
 @import '_bootstrap-sprockets';
 @import '_bootstrap';
 @import 'font-awesome';
@@ -50,12 +50,29 @@ body p {
     }
   }
 
+  .dropdown-menu {
+    background-color: $blue-color;
+
+    li {
+      color: $white-color !important;
+
+      &:hover {}
+
+      a {
+        &:hover {
+          color: $white-color !important;
+          background-color: $dark-blue-color;
+        }
+      }
+    }
+  }
+
   li.dropdown.open a.dropdown-toggle {
     background-color: $dark-blue-color;
   }
 
   .navbar-toggle {
-    &:focus {
+    &:focus, &:hover {
       background-color: $dark-blue-color;
     }
 

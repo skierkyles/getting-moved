@@ -13,7 +13,7 @@
   </head>
   <body>
     <%= render 'layouts/navigation' %>
-    <main role="main" class="container">
+    <main role="main" class="container <%= content_for?(:css_class) ? yield(:css_class) : "" %>">
       <%= render 'layouts/messages' %>
       <%= yield %>
     </main>

@@ -1,8 +1,9 @@
 <% provide(:title, @user.name) %>
+<% provide(:css_class, "show-user") %>
 
 <!-- First Row! -->
 <div class="row">
-  <div class="col-md-3">
+  <div class="col-md-3 activity-list">
     <h1><i class="fa fa-cogs"></i> Activities</h1>
     <div class="list-group">
       <% @tasks.each do |t| %>
@@ -62,11 +63,11 @@
       <% end %>
     <% end %>
 
-    <h3>Stats</h3>
+    <h4>Stats</h4>
     <p>Member Since: <%= @user.created_at.to_formatted_s(:month_and_year) %></p>
     <p>Tasks Logged: <%= @user.tasks_logged.count %></p>
 
-    <h3>Friends</h3>
+    <h4>Friends</h4>
     <div class="list-group">
     <% @user.user_relationships.each do |f| %>
       <%= link_to f.followed_user.name, f.followed_user, :class => "list-group-item" %>
