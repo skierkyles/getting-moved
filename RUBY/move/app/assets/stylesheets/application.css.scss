@@ -42,7 +42,7 @@ body p {
 .navbar {
   background-color: $blue-color;
 
-  a.navbar-brand, .navbar-nav > li > a {
+  a.navbar-brand, .navbar-nav li a, .navbar-nav li {
     color: $white-color !important;
 
     &:hover {
@@ -52,6 +52,16 @@ body p {
 
   li.dropdown.open a.dropdown-toggle {
     background-color: $dark-blue-color;
+  }
+
+  .navbar-toggle {
+    &:focus {
+      background-color: $dark-blue-color;
+    }
+
+    .icon-bar {
+      background-color: $white-color;
+    }
   }
 }
 

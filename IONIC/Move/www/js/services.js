@@ -10,6 +10,10 @@ move_services.factory('Task', function ($q, $http, UserService) {
 
     var id = UserService.getUser().id;
 
+    if (id === undefined) {
+      id = 0;
+    }
+
     $http.get('http://0.0.0.0:3000/1/api_tasks/' + id).then(
       function (success) {
         dfd.resolve(success.data.tasks);
