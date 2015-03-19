@@ -12,6 +12,7 @@
  */
 @import 'welcome';
 @import 'users';
+@import 'task';
 @import '_bootstrap-sprockets';
 @import '_bootstrap';
 @import 'font-awesome';
@@ -56,7 +57,9 @@ body p {
     li {
       color: $white-color !important;
 
-      &:hover {}
+      &:hover {
+        color: $white-color !important;
+      }
 
       a {
         &:hover {

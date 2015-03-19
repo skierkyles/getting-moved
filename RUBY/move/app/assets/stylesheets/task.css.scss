@@ -1,3 +1,19 @@
 // Place all the styles related to the task controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.task {
+  h1 {
+    text-transform: uppercase;
+    font-family: $fancy-font;
+    font-size: 20px;
+  }
+
+  small {
+    font-family: $normal-font;
+  }
+
+  .btn {
+    text-transform: uppercase;
+  }
+}

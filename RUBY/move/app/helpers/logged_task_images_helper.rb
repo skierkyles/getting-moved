@@ -1,0 +1,2 @@
+module LoggedTaskImagesHelper
+end

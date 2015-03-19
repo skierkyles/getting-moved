@@ -34,6 +34,8 @@ class LoggedTasksController < ApplicationController
   def show
     @logged_task = LoggedTask.find(params[:id])
     @logged_task_comment = Comment.new
+
+    @logged_task_image = LoggedTaskImage.new
   end
 
   private

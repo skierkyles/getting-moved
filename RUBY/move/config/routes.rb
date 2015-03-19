@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   resources :tasks
   resources :logged_tasks
+  resources :logged_task_images
   resources :comments
   resources :user_relationships
 

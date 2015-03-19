@@ -2,6 +2,7 @@ class LoggedTask < ActiveRecord::Base
   # Relations
   belongs_to :task
   has_many :comments
+  has_many :images, :foreign_key => 'logged_task_id', :class_name => "LoggedTaskImage"
 
   # Validators
   validates :notes, presence: true

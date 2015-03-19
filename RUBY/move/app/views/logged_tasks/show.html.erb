@@ -1,3 +1,5 @@
+<% provide(:css_class, "task show-logged-task") %>
+
 <div class="row">
   <div class="col-md-7">
     <h1>
@@ -15,6 +17,25 @@
       <%= @logged_task.task_date.to_formatted_s(:short_date) %>
     </h4>
     <%= @logged_task.notes %>
+    <% if @logged_task.images.length > 0  %>
+    <div class="row">
+      <% @logged_task.images.each do |i| %>
+      <div class="col-md-3">
+        <a href="<%= i.image.url %>">
+              <%= image_tag i.image.url(:thumb), :class=>"img-responsive img-thumbnail" %>
+        </a>
+      </div>
+      <% end %>
+    </div>
+    <% end %>
+    <hr>
+    <h4>Add an image</h4>
+    <%= form_for @logged_task_image, :html => { :multipart => true } do |form| %>
+      <%= form.hidden_field :logged_task_id, :value => @logged_task.id %>
+      <%= form.file_field :image %>
+
+      <%= form.submit "Upload", class: "btn btn-default" %>
+    <% end %>
   </div>
 
   <div class="col-md-5">

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150302035829) do
+ActiveRecord::Schema.define(version: 20150319174051) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -38,6 +38,18 @@ ActiveRecord::Schema.define(version: 20150302035829) do
 
   add_index "comments", ["logged_task_id"], name: "index_comments_on_logged_task_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "logged_task_images", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer  "logged_task_id"
+  end
+
+  add_index "logged_task_images", ["logged_task_id"], name: "index_logged_task_images_on_logged_task_id"
 
   create_table "logged_tasks", force: true do |t|
     t.text     "notes"
