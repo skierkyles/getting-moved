@@ -20,22 +20,26 @@
     <% if @logged_task.images.length > 0  %>
     <div class="row">
       <% @logged_task.images.each do |i| %>
-      <div class="col-md-3">
+      <div class="col-md-4 col-image">
         <a href="<%= i.image.url %>">
-              <%= image_tag i.image.url(:thumb), :class=>"img-responsive img-thumbnail" %>
+          <div class="task-image img-rounded" style="background-image: url(<%= i.image.url(:medium) %>)">
+          </div>
         </a>
       </div>
       <% end %>
     </div>
     <% end %>
     <hr>
-    <h4>Add an image</h4>
-    <%= form_for @logged_task_image, :html => { :multipart => true } do |form| %>
-      <%= form.hidden_field :logged_task_id, :value => @logged_task.id %>
-      <%= form.file_field :image %>
-
-      <%= form.submit "Upload", class: "btn btn-default" %>
-    <% end %>
+    <div class="panel panel-default">
+      <%= simple_form_for @logged_task_image, :html => { :multipart => true, :class => "form-inline panel-body" } do |form| %>
+        <%= form.hidden_field :logged_task_id, :value => @logged_task.id %>
+        <div class="form-group">
+          <label for="logged_task_image_image">Add an Image</label>
+          <%= form.file_field :image %>
+        </div>
+        <%= form.submit "Upload", class: "btn btn-default pull-right" %>
+      <% end %>
+    </div>
   </div>
 
   <div class="col-md-5">

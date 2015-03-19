@@ -17,3 +17,30 @@
     text-transform: uppercase;
   }
 }
+
+.show-logged-task {
+  .col-image {
+    height: 150px;
+    margin-top: 30px;
+
+    .task-image {
+      height: 100%;
+      width: 100%;
+
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+  }
+
+  .form-inline {
+    .form-group {
+      padding-top: 7px;
+    }
+
+    input[type="file"] {
+      padding-left: 10px;
+      display: inline;
+    }
+  }
+}
