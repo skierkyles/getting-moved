@@ -1,10 +1,14 @@
+<% provide(:body_style, "background-image: url(" + @welcome_image + ")") %>
+<% provide(:body_class, "body-class") %>
+<% provide(:css_class, "welcome") %>
+
 <div id="homePage" class="row">
   <div class="col-lg-4 col-md-3">
   </div>
   <div class="col-lg-4 col-md-6">
     <h1>The Time Tracker</h1>
     <h3>Track everything. Do more.</h3>
-    <p><%= link_to "Get Started" , new_user_registration_path, class: 'btn btn-primary' %></p>
+    <%= link_to "Get Started" , new_user_registration_path, class: 'btn btn-primary' %>
     <p>Made in Salt Lake City, Utah. <%= link_to 'Find out how.', page_path('how-its-made') %></p>
     <p>Make sure to browse the <%= link_to 'API',  api_tasks_path(:version=>1) %></p>
   </div>

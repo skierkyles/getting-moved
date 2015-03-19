@@ -20,6 +20,10 @@
 
 @import 'variables';
 
+html {
+  min-height: 100%;
+}
+
 body {
   font-family: $normal-font;
 }
@@ -42,6 +46,7 @@ body p {
 // Nav Bar
 .navbar {
   background-color: $blue-color;
+  border-color: darken($blue-color, 10%);
 
   a.navbar-brand, .navbar-nav li a, .navbar-nav li {
     color: $white-color !important;
@@ -84,6 +89,24 @@ body p {
     }
   }
 }
+
+//Individuals
+.logged-task-individual {
+
+
+  h4, p, i {
+    color: $white-color;
+
+    small {
+      color: darken($white-color, 5%);
+    }
+  }
+
+  footer {
+    color: $white-color;
+  }
+}
+
 
 // Bootstrap overrides
 .btn-primary {

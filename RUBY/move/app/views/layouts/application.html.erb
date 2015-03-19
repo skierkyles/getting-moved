@@ -11,7 +11,7 @@
     <%= javascript_include_tag "//www.google.com/jsapi", "chartkick" %>
     <%= csrf_meta_tags %>
   </head>
-  <body>
+  <body class="<%= content_for?(:body_class) ? yield(:body_class) : "" %>" style="<%= content_for?(:body_style) ? yield(:body_style) : "" %>">
     <%= render 'layouts/navigation' %>
     <main role="main" class="container <%= content_for?(:css_class) ? yield(:css_class) : "" %>">
       <%= render 'layouts/messages' %>

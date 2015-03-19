@@ -10,6 +10,14 @@ class LoggedTask < ActiveRecord::Base
 
   default_scope { order('task_date DESC') }
 
+  def image
+    if self.images.length == 0
+      nil
+    else
+      self.images.first.image
+    end
+  end
+
   def hashed
     {:id => self.id, :notes => self.notes, :created_at => self.created_at,
     :updated_at => self.updated_at, :task_id => self.task_id, :task_date => self.task_date,

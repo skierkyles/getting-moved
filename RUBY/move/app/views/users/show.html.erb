@@ -72,6 +72,11 @@
     <% @user.user_relationships.each do |f| %>
       <%= link_to f.followed_user.name, f.followed_user, :class => "list-group-item" %>
     <% end %>
+    <% if @user.user_relationships.length == 0 %>
+      <p class="list-group-item">
+        You don't have any friends. Why don't you add some from the activity stream?
+      </p>
+    <% end %>
     </div>
   </div>
 </div>

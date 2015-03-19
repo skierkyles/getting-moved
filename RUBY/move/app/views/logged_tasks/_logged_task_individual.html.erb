@@ -1,4 +1,11 @@
-<%= link_to logged_task , class: "list-group-item" do %>
+<% if logged_task.image %>
+  <% style = "background: linear-gradient(rgba(50, 153, 187, 0.6), rgba(50, 153, 187, 0.4)), url(" + logged_task.image.url(:medium) + ") no-repeat center/cover " %>
+<% else %>
+  <% style = "background: linear-gradient(rgba(50, 153, 187, 0.6), rgba(50, 153, 187, 0.4))" %>
+<% end %>
+
+
+<%= link_to logged_task , class: "list-group-item logged-task-individual", style: style  do %>
   <h4><%= logged_task.task.title %> <small>on <%= logged_task.task_date.to_formatted_s(:short_date) %></small></h4>
   <p><%= logged_task.notes %></p>
   <% if logged_task.comments.count > 0 %>

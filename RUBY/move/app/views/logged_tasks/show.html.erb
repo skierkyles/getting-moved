@@ -31,13 +31,15 @@
     <% end %>
     <hr>
     <div class="panel panel-default">
-      <%= simple_form_for @logged_task_image, :html => { :multipart => true, :class => "form-inline panel-body" } do |form| %>
-        <%= form.hidden_field :logged_task_id, :value => @logged_task.id %>
-        <div class="form-group">
-          <label for="logged_task_image_image">Add an Image</label>
-          <%= form.file_field :image %>
-        </div>
-        <%= form.submit "Upload", class: "btn btn-default pull-right" %>
+      <% if @logged_task.task.user == current_user %>
+        <%= simple_form_for @logged_task_image, :html => { :multipart => true, :class => "form-inline panel-body" } do |form| %>
+          <%= form.hidden_field :logged_task_id, :value => @logged_task.id %>
+          <div class="form-group">
+            <label for="logged_task_image_image">Add an Image</label>
+            <%= form.file_field :image %>
+          </div>
+          <%= form.submit "Upload", class: "btn btn-default pull-right" %>
+        <% end %>
       <% end %>
     </div>
   </div>

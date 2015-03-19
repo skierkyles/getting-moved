@@ -4,15 +4,33 @@
 
 @import 'variables';
 
+.body-class {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: top;
+
+	height: 100%;
+}
+
 #homePage {
 	text-align: center;
 
 	h1 {
 		font-family: $fancy-font;
+		color: $white-color;
 	}
 
 	h3 {
 		margin-top: 5px;
+		color: $white-color;
+	}
+
+	p {
+		color: $white-color;
+
+		a {
+			color: $orange-color;
+		}
 	}
 
 	.btn {
