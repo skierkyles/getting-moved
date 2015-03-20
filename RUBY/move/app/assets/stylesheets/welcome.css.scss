@@ -10,6 +10,23 @@
 	background-position: top;
 
 	height: 100%;
+
+	.navbar {
+		background: transparent;
+		border: none;
+
+		.collapsing {
+			background-color: $blue-color;
+		}
+
+		.collapse.in {
+			background-color: $blue-color;
+		}
+
+		li.dropdown.open > a {
+			background-color: transparent !important;
+		}
+	}
 }
 
 #homePage {
