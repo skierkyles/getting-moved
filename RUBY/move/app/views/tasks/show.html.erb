@@ -3,7 +3,7 @@
 
 
 <div class="row">
-  <div class="col-md-8">
+  <div class="col-md-8 col-sm-7">
     <h1>Logged Tasks</h1>
     <div class="list-group">
       <% @task.logged_tasks.take(10).each do |t| %>
@@ -14,7 +14,7 @@
       <%= link_to "Log", new_logged_task_path(:task_id=> @task.id), class: 'btn btn-success' %>
     <% end %>
   </div>
-  <div class="col-md-4 panel">
+  <div class="col-md-4 col-sm-5 panel">
     <h1><%= @task.title %><small> by <%= link_to @task.user.name, @task.user %></small></h1>
     <p>Logged Tasks: <%= @task.logged_tasks.count %></p>
     <% if @task.logged_tasks.first %>

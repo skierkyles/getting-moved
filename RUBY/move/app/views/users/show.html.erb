@@ -3,7 +3,7 @@
 
 <!-- First Row! -->
 <div class="row">
-  <div class="col-md-3 activity-list">
+  <div class="col-md-3 col-sm-3 activities-pane activity-list">
     <h1><i class="fa fa-cogs"></i> Activities</h1>
     <div class="list-group">
       <% @tasks.each do |t| %>
@@ -28,7 +28,7 @@
     <% end %>
   </div>
 
-  <div class="col-md-5">
+  <div class="col-md-5 col-sm-5 stream-pane">
     <h1><i class="fa fa-history"></i> Stream</h1>
 
     <div class="list-group">
@@ -44,15 +44,16 @@
     </div>
   </div>
 
-  <div class="col-md-4 panel">
-    <h1><i class="fa fa-user"></i> <%= @user.name %></h1>
+  <div class="col-md-4 col-sm-4 user-pane panel panel-default">
+    <h1><%= @user.name %></h1>
+    <%= image_tag @user.avatar.url(:thumb), :class=>"img-rounded avatar-image" %>
 
     <% if @is_current_user %>
+    <div class="btns-account">
       <div class="btn-group" role="group">
         <%= link_to "Update My Account", edit_user_path, class: "btn btn-default btn-xs" %>
-        <a class="btn btn-default btn-xs">Other Thing</a>
-        <a class="btn btn-default btn-xs">Things</a>
       </div>
+    </div>
     <% end %>
 
     <% if @can_have_relationship %>
@@ -85,11 +86,11 @@
 <div class="row">
   <div class="col-md-6">
     <h1>Month by Month</h1>
-    <%= line_chart @month_by_month %>
+    <%= column_chart @month_by_month, min: 0, max: @month_by_month_max %>
   </div>
 
   <div class="col-md-6">
     <h1>Day by Day</h1>
-    <%= column_chart @day_by_day %>
+    <%= line_chart @day_by_day %>
   </div>
 </div>

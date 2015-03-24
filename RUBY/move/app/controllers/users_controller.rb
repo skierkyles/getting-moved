@@ -13,8 +13,13 @@ class UsersController < ApplicationController
     end
 
     # Stats section
-    @month_by_month =  Hash[ @user.tasks_logged.to_a.group_by_month{|u| u.task_date }.map{|k, v| [k, v.size] } ]
-    @day_by_day =  Hash[ @user.tasks_logged.where(['task_date > ?', 1.week.ago]).to_a.group_by_day{|u| u.task_date }.map{|k, v| [k, v.size] } ]
+    @month_by_month =  Hash[ @user.tasks_logged.to_a.group_by_month{|u| u.task_date }.map{|k, v| [k.strftime("%B"), v.size] } ]
+
+    puts @month_by_month
+    @month_by_month_max = @month_by_month.max_by{|k,v| v}[1] + 2
+
+
+    @day_by_day =  Hash[ @user.tasks_logged.where(['task_date > ?', 4.week.ago]).to_a.group_by_day{|u| u.task_date }.map{|k, v| [k.strftime("%m/%d"), v.size] } ]
   end
 
   def index
@@ -61,7 +66,7 @@ class UsersController < ApplicationController
 
   private
     def update_params
-      allowed_params = params.require(:user).permit(:name, :password, :password_confirmation)
+      allowed_params = params.require(:user).permit(:avatar, :name, :password, :password_confirmation)
       allowed_params.delete_if {|k,v| v.blank?}
     end
 

@@ -13,11 +13,44 @@
     text-transform: uppercase;
   }
 
-  .activity-list {
+  .activities-pane {
 
+  }
+
+  .stream-pane {
+
+  }
+
+  .user-pane {
+    h1 {
+      text-align: center;
+    }
+
+    .btns-account {
+      text-align: center;
+    }
+
+    .avatar-image {
+      display: block;
+      margin: 5px auto;
+    }
   }
 
   .btn {
     text-transform: uppercase;
+  }
+}
+
+
+.edit-user {
+  padding-bottom: 50px;
+
+  h1 {
+    text-align: center;
+  }
+
+  .avatar-image {
+    display: block;
+    margin: 0 auto;
   }
 }
