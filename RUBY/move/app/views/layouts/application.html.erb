@@ -12,9 +12,9 @@
     <%= csrf_meta_tags %>
   </head>
   <body class="<%= content_for?(:body_class) ? yield(:body_class) : "" %>" style="<%= content_for?(:body_style) ? yield(:body_style) : "" %>">
+    <%= render 'layouts/messages' %>
     <%= render 'layouts/navigation' %>
     <main role="main" class="container <%= content_for?(:css_class) ? yield(:css_class) : "" %>">
-      <%= render 'layouts/messages' %>
       <%= yield %>
     </main>
   </body>

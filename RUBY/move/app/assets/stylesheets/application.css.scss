@@ -46,7 +46,8 @@ body p {
 // Nav Bar
 .navbar {
   background-color: $blue-color;
-  border-color: darken($blue-color, 10%);
+  border-color: $dark-blue-color;
+  border-radius: 0;
 
   a.navbar-brand, .navbar-nav li a, .navbar-nav li {
     color: $white-color !important;
@@ -120,4 +121,14 @@ body p {
 // Date picker
 .ui-datepicker-inline {
   display: none !important;
+}
+
+#FlashContainer {
+  background: $dark-blue-color;
+
+  .flash {
+    color: $white-color;
+    padding: 7px 15px 7px 15px;
+    display: inline-block;
+  }
 }
