@@ -14,7 +14,7 @@ move_services.factory('Task', function ($q, $http, UserService) {
       id = 0;
     }
 
-    $http.get('http://0.0.0.0:3000/1/api_tasks/' + id).then(
+    $http.get(SERVER_ADDRESS + '/1/api_tasks/' + id).then(
       function (success) {
         dfd.resolve(success.data.tasks);
       },
@@ -48,7 +48,7 @@ move_services.factory('Task', function ($q, $http, UserService) {
   service.getDetailedTask = function (taskId) {
     var dfd = $q.defer();
 
-    $http.get('http://0.0.0.0:3000/1/api_logged_tasks/' + taskId).then(
+    $http.get(SERVER_ADDRESS + '/1/api_logged_tasks/' + taskId).then(
       function (success) {
         dfd.resolve(success.data.logged_task);
       },
@@ -101,13 +101,9 @@ move_services.service('UserService', function () {
           user = getObject(USER_DATA);
         }
         return user;
+      },
+      isLoggedIn: function () {
+        return this.getUser().id !== undefined && this.getUser().id !== null;
       }
     }
 });
-
-function setObject(key, value) {
-  window.localStorage[key] = JSON.stringify(value);
-}
-function getObject(key) {
-  return JSON.parse(window.localStorage[key] || '{}');
-}

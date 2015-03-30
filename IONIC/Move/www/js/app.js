@@ -23,7 +23,7 @@ app.run(function($ionicPlatform) {
 
 app.config(function($stateProvider, $urlRouterProvider, $authProvider) {
   $authProvider.configure({
-    apiUrl: 'http://0.0.0.0:3000/1',
+    apiUrl: SERVER_ADDRESS + "/1",
     emailSignInPath: '/api_sessions',
     handleLoginResponse: function (response) {
       return response;
@@ -100,7 +100,18 @@ app.config(function($stateProvider, $urlRouterProvider, $authProvider) {
     },
     resolve: {
       resolvedUser: function (UserService) {
-        return { user: UserService.getUser(), auth: UserService.getAuthToken() };
+        return { isLoggedIn: UserService.isLoggedIn(), user: UserService.getUser(), auth: UserService.getAuthToken() };
+      }
+    }
+  })
+
+  .state('app.account_login', {
+    cache: false,
+    url: "/account/login/",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/account_login.html",
+        controller: 'AccountLoginCtrl',
       }
     }
   });

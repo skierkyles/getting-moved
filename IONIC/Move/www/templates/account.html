@@ -1,5 +1,5 @@
 <ion-view view-title="My Account" id="Account">
-  <ion-content>
+  <ion-content ng-show="data.isLoggedIn">
     <div class="row">
       <div class="col">
         <h1><i class="icon ion-person"></i> {{ data.user.email }}</h1>
@@ -22,6 +22,17 @@
       <div class="col">
         <p>Auth: {{ data.auth }}</p>
       </div>
+    </div>
+  </ion-content>
+
+  <ion-content ng-show="!data.isLoggedIn">
+    <div class="row">
+      <h1>You need to log in first!</h1>
+    </div>
+    <div class="row">
+      <button class="button  button-light" ui-sref="app.account_login">
+        Login
+      </button>
     </div>
   </ion-content>
 </ion-view>
