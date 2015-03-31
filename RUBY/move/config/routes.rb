@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
   api :version => 1 do
     resources :api_tasks, :only => [:index, :show]
-    resources :api_logged_tasks, :only => [:index, :show]
+    resources :api_logged_tasks, :only => [:index, :show, :create]
 
     # https://github.com/abhidsm/devise-token-api
     devise_scope :user do

@@ -16,8 +16,9 @@ class UsersController < ApplicationController
     @month_by_month =  Hash[ @user.tasks_logged.to_a.group_by_month{|u| u.task_date }.map{|k, v| [k.strftime("%B"), v.size] } ]
 
     puts @month_by_month
-    @month_by_month_max = @month_by_month.max_by{|k,v| v}[1] + 2
-
+    if @month_by_month.keys.length > 0
+      @month_by_month_max = @month_by_month.max_by{|k,v| v}[1] + 2
+    end
 
     @day_by_day =  Hash[ @user.tasks_logged.where(['task_date > ?', 4.week.ago]).to_a.group_by_day{|u| u.task_date }.map{|k, v| [k.strftime("%m/%d"), v.size] } ]
   end
