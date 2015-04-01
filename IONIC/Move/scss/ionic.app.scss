@@ -87,6 +87,35 @@ $menu-bg:                         $blue-color !default;
   }
 }
 
+#TaskHistory {
+  p {
+    margin: 0;
+  }
+
+  .thumb-row {
+    padding: 0;
+
+    div {
+      padding: 0;
+      height: 100px;
+
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .tabs {
+    border-top: 1px !important;
+    border-top-color: #ddd !important;
+    border-top-style: solid !important;
+
+    .tab-item {
+      max-width: none;
+    }
+  }
+}
+
 #Account {
   text-align: center;
 }
@@ -94,6 +123,13 @@ $menu-bg:                         $blue-color !default;
 #LoggedTaskDetail {
   h1, h2, h3 {
     text-align: center;
+  }
+}
+
+#Login {
+  h1 {
+    text-align: center;
+    padding: 20px;
   }
 }
 

@@ -7,8 +7,23 @@
 var app = angular.module('move', ['ionic', 'move.controllers', 'move.services',
                           'move.directives', 'ng-token-auth']);
 
-app.run(function($ionicPlatform) {
+app.run(function($ionicPlatform, $rootScope, $state, UserService) {
+  console.log("app.run");
+
   $ionicPlatform.ready(function() {
+    if (!UserService.isLoggedIn()) {
+      $state.go("login");
+    }
+
+    $rootScope.$on("$stateChangeStart", function (event, next, current) {
+      console.log("On Route Change");
+      if (!UserService.isLoggedIn()) {
+        event.preventDefault();
+        if (next.name != "login") {
+          $state.go("login");
+        }
+      }
+    });
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -105,18 +120,16 @@ app.config(function($stateProvider, $urlRouterProvider, $authProvider) {
     }
   })
 
-  .state('app.account_login', {
+  .state('login', {
     cache: false,
     url: "/account/login/",
-    views: {
-      'menuContent': {
-        templateUrl: "templates/account_login.html",
-        controller: 'AccountLoginCtrl',
-      }
-    }
+    templateUrl: "templates/account_login.html",
+    controller: 'AccountLoginCtrl',
   });
   // if none of the above states are matched, use this as the fallback
+
   $urlRouterProvider.otherwise('/app/activities');
+
 });
 
 app.filter('date2', function($filter) {

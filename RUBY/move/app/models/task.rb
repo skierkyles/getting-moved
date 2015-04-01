@@ -18,8 +18,13 @@ class Task < ActiveRecord::Base
   end
 
   def hashed
+    hashed_logged_tasks = []
+    self.logged_tasks.each do |lt|
+      hashed_logged_tasks.append(lt.hashed)
+    end
+
     {:id => self.id, :title => self.title,
       :created_at => self.created_at, :updated_at => self.updated_at,
-      :user_id => self.user_id, :logged_tasks => self.logged_tasks }
+      :user_id => self.user_id, :logged_tasks => hashed_logged_tasks }
   end
 end

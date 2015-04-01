@@ -42,11 +42,31 @@ $dark:                            #444 !default;
     bottom: 100px;
     left: 37%; }
 
+#TaskHistory p {
+  margin: 0; }
+#TaskHistory .thumb-row {
+  padding: 0; }
+  #TaskHistory .thumb-row div {
+    padding: 0;
+    height: 100px; }
+    #TaskHistory .thumb-row div img {
+      max-width: 100%; }
+#TaskHistory .tabs {
+  border-top: 1px !important;
+  border-top-color: #ddd !important;
+  border-top-style: solid !important; }
+  #TaskHistory .tabs .tab-item {
+    max-width: none; }
+
 #Account {
   text-align: center; }
 
 #LoggedTaskDetail h1, #LoggedTaskDetail h2, #LoggedTaskDetail h3 {
   text-align: center; }
+
+#Login h1 {
+  text-align: center;
+  padding: 20px; }
 
 /*!
   Ionicons, v1.5.2

@@ -13,9 +13,19 @@ controllers.controller('ActivityCtrl', function($scope, $ionicModal, resolvedTas
   $scope.activity = resolvedTask;
 });
 
-controllers.controller('LoggedTaskCtrl', function($scope, resolvedTask) {
+controllers.controller('LoggedTaskCtrl', function($scope, Camera, resolvedTask) {
   console.log("LoggedTaskCtrl", resolvedTask);
   $scope.task = resolvedTask;
+
+  $scope.takePicture = function () {
+    console.log("takePicture()");
+    Camera.getPicture({
+      quality : 75,
+      destinationType : Camera.DestinationType.DATA_URL,
+      sourceType : Camera.PictureSourceType.CAMERA,
+      encodingType: Camera.EncodingType.JPEG,
+    });
+  };
 });
 
 controllers.controller('AccountCtrl', function($scope, $ionicModal, $auth, UserService, resolvedUser) {
