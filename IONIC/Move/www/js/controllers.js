@@ -9,11 +9,12 @@ controllers.controller('ActivitiesCtrl', function($scope, resolvedTasks) {
 });
 
 controllers.controller('ActivityCtrl', function($scope, $ionicModal, resolvedTask) {
-  console.log(resolvedTask);
+  console.log('ActivityCtrl', resolvedTask);
   $scope.activity = resolvedTask;
 });
 
 controllers.controller('LoggedTaskCtrl', function($scope, resolvedTask) {
+  console.log("LoggedTaskCtrl", resolvedTask);
   $scope.task = resolvedTask;
 });
 

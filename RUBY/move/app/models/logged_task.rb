@@ -24,8 +24,13 @@ class LoggedTask < ActiveRecord::Base
       hashed_images.append(i.hashed)
     end
 
+    hashed_comments = []
+    self.comments.each do |c|
+      hashed_comments.append(c.hashed)
+    end
+
     {:id => self.id, :notes => self.notes, :created_at => self.created_at,
     :updated_at => self.updated_at, :task_id => self.task_id, :task_date => self.task_date,
-    :comments => self.comments, :images => hashed_images }
+    :comments => hashed_comments, :images => hashed_images }
   end
 end

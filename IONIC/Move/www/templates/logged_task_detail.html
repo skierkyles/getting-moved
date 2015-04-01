@@ -1,13 +1,24 @@
-<ion-view view-title="Task">
+<ion-view view-title="Task" id="LoggedTaskDetail">
   <ion-content>
-    <div class="card">
+    <div class="list card">
       <div class="item item-text-wrap">
         <p>{{ task.notes }}</p>
       </div>
+
+      <div class="item item-image" ng-repeat="image in task.images">
+        <img ng-src="{{ image.image }}">
+      </div>
     </div>
     <h3>Comments</h3>
-    <div ng-repeat="comment in task.comments" class="card">
-      <p>{{ comment.copy }}</p>
+    <div ng-repeat="comment in task.comments" class="list card">
+      <div class="item item-icon-right">
+        <h4>{{ comment.user }} said</h4>
+        <i ng-class-even="'icon ion-ios7-chatboxes-outline'" ng-class-odd="'icon ion-ios7-chatboxes'" ></i>
+      </div>
+
+      <div class="item item-body">
+        <p>{{ comment.copy }}</p>
+      </div>
     </div>
 
   </ion-content>

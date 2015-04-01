@@ -45,6 +45,9 @@ $dark:                            #444 !default;
 #Account {
   text-align: center; }
 
+#LoggedTaskDetail h1, #LoggedTaskDetail h2, #LoggedTaskDetail h3 {
+  text-align: center; }
+
 /*!
   Ionicons, v1.5.2
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/

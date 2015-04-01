@@ -11,7 +11,8 @@ move_services.factory('Task', function ($q, $http, UserService) {
     var id = UserService.getUser().id;
 
     if (id === undefined) {
-      id = 0;
+      console.log("Undefined User");
+      id = "";
     }
 
     $http.get(SERVER_ADDRESS + '/1/api_tasks/' + id).then(
