@@ -6,8 +6,8 @@ class LoggedTaskImage < ActiveRecord::Base
 
   def hashed
     {
-      id => self.id,
-      image => self.image
+      'id' => self.id,
+      'image' => URI.join(ActionController::Base.asset_host, self.image.url).to_s
     }
   end
 end
