@@ -1,6 +1,6 @@
 var move_services = angular.module('move.services', []);
 
-move_services.factory('Task', function ($q, $http, UserService) {
+move_services.factory('Task', function ($q, $http, $ionicPopup, UserService) {
   var service = {};
 
   service.getTasks = function () {
@@ -93,9 +93,13 @@ move_services.factory('Task', function ($q, $http, UserService) {
       image_data: image,
     }
 
-    $http.post(SERVER_ADDRESS + '/1/api_logged_tasks_images').then(
+    $http.post(SERVER_ADDRESS + '/1/api_logged_tasks_images/', data).then(
       function (success) {
-        dfd.resolve(success);
+        if (success.data.success == false) {
+          dfd.reject(success);
+        } else {
+          dfd.resolve(success);
+        }
       },
       function (failure) {
         dfd.reject(failure);

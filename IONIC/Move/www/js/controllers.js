@@ -4,8 +4,19 @@ controllers.controller('AppCtrl', function($scope) {
 
 });
 
-controllers.controller('ActivitiesCtrl', function($scope, resolvedTasks) {
+controllers.controller('ActivitiesCtrl', function($scope, Task, resolvedTasks) {
   $scope.activities = resolvedTasks;
+
+  $scope.doRefresh = function () {
+    Task.getTasks().then(
+      function (tasks) {
+        $scope.activities = tasks;
+      },
+      function (failure) {}
+    ).finally(function () {
+      $scope.$broadcast('scroll.refreshComplete');
+    });
+  }
 });
 
 controllers.controller('ActivityCtrl', function($scope, $state, Task, resolvedTask) {
@@ -28,31 +39,41 @@ controllers.controller('ActivityCtrl', function($scope, $state, Task, resolvedTa
   };
 });
 
-controllers.controller('LoggedTaskCtrl', function($scope, Camera, Task, resolvedTask) {
+controllers.controller('LoggedTaskCtrl', function($scope, $ionicPopup, $ionicLoading, Camera, Task, resolvedTask) {
   console.log("LoggedTaskCtrl", resolvedTask);
   $scope.task = resolvedTask;
+  var task_img_id = $scope.task.id;
 
   $scope.takePicture = function () {
     console.log("takePicture()");
     Camera.getPicture({
       quality : 75,
-      destinationType : Camera.DestinationType.DATA_URL,
-      sourceType : Camera.PictureSourceType.CAMERA,
-      encodingType: Camera.EncodingType.JPEG,
+      destinationType : 0,
+      sourceType : 1,
+      encodingType: 0,
     }).then(
       function(result) {
-        Task.sendImage($scope.task.id, result).then(
-          function (success) {
-            alert('Sent!', success);
+        $ionicLoading.show({
+          template: 'Uploading...'
+        });
 
+        Task.sendImage(task_img_id, result).then(
+          function (success) {
+            Task.getDetailedTask(task_img_id).then(
+              function (success) {
+                $scope.task = success;
+              },
+              function (error) {}
+            ).finally(function () {
+              $ionicLoading.hide();
+            });
           },
           function (error) {
-            alert('Failwhale!', error);
+            $ionicLoading.hide();
+            $ionicPopup.alert({ title:'Error', template: "Tried to send to '" + task_img_id + "' -> " + JSON.stringify(error)});
           });
       },
-      function (error) {
-
-      }
+      function (error) {}
     );
   };
 });

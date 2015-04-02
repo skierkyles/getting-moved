@@ -88,6 +88,7 @@ app.config(function($stateProvider, $urlRouterProvider, $authProvider) {
   })
 
   .state('app.logged_task', {
+    cache: false,
     url: "/activities/logged_tasks/:taskId",
     views: {
       'menuContent': {

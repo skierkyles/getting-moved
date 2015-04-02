@@ -23,7 +23,7 @@ class LoggedTaskImage < ActiveRecord::Base
   def hashed
     {
       'id' => self.id,
-      'image' => URI.join(ActionController::Base.asset_host, self.image.url).to_s,
+      'image' => URI.join(ActionController::Base.asset_host, self.image.url(:large)).to_s,
       'thumb' => URI.join(ActionController::Base.asset_host, self.image.url(:thumb)).to_s,
     }
   end
