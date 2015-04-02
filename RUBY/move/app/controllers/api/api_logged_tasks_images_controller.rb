@@ -13,8 +13,8 @@ class ApiLoggedTasksImagesController < ApiController
       img.save()
 
       render :json => { :success => true }
-    rescue
-      failure("Nope")
+    rescue Exception => e
+      failure("Tried #{params[:logged_task_id]} but failed. #{e} !!!")
     end
   end
 
