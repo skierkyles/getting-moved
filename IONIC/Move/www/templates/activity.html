@@ -1,18 +1,22 @@
 <ion-view view-title="{{ activity.title }}">
   <ion-content>
     <div id="LogTask" full-screen-section>
-      <div class="row">
-        <div class="col">
-          <label class="item item-input">
-            <textarea placeholder="Notes"></textarea>
-          </label>
+
+      <form ng-submit="logNewTask(data)" name="logForm">
+        <div class="row">
+          <div class="col">
+            <label class="item item-input">
+              <textarea placeholder="Notes" ng-model="data.content" ng-minlength="1" required></textarea>
+            </label>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <button class="button button-full button-positive">
-          Log new {{ activity.title }} task
-        </button>
-      </div>
+        <div class="row">
+          <button ng-disabled="logForm.$invalid" type="submit" class="button button-full button-positive">
+            Log new {{ activity.title }} task
+          </button>
+        </div>
+      </form>
+
       <div class="row bottom">
           <i class="icon ion-chevron-up"></i>
       </div>
@@ -39,7 +43,7 @@
         </div>
 
         <div class="item tabs tabs-secondary tabs-icon-right">
-          <a class="tab-item" ui-sref="app.logged_task({activityId: task.id})">
+          <a class="tab-item" ui-sref="app.logged_task({taskId: task.id})">
             See More
             <i class="icon ion-information-circled"></i>
           </a>

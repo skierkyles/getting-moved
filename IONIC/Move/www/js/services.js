@@ -1,11 +1,10 @@
-//EXAMPLE JSON DATA: {"response":[{"id":1,"title":"Skiing 2014/2015","created_at":"2015-02-01T22:46:20.721-07:00","updated_at":"2015-02-01T22:46:20.721-07:00","user_id":1},{"id":2,"title":"Climbing 2015","created_at":"2015-02-10T23:15:28.156-07:00","updated_at":"2015-02-10T23:15:28.156-07:00","user_id":1}],"count":2}
-
 var move_services = angular.module('move.services', []);
 
 move_services.factory('Task', function ($q, $http, UserService) {
   var service = {};
 
   service.getTasks = function () {
+    console.log("service.getTasks()");
     var dfd = $q.defer();
 
     var id = UserService.getUser().id;
@@ -28,6 +27,7 @@ move_services.factory('Task', function ($q, $http, UserService) {
   }
 
   service.getTask = function (taskId) {
+    console.log("service.getTask(taskId)");
     var dfd = $q.defer();
     service.getTasks().then(
       function (tasks) {
@@ -47,6 +47,7 @@ move_services.factory('Task', function ($q, $http, UserService) {
   }
 
   service.getDetailedTask = function (taskId) {
+    console.log("service.getDetailedTask(taskId)");
     var dfd = $q.defer();
 
     $http.get(SERVER_ADDRESS + '/1/api_logged_tasks/' + taskId).then(
@@ -57,6 +58,49 @@ move_services.factory('Task', function ($q, $http, UserService) {
         dfd.reject(failure);
       }
     );
+
+    return dfd.promise;
+  }
+
+  service.sendTask = function (taskId, notes) {
+    console.log("service.sendTask(taskId)");
+    var dfd = $q.defer();
+
+    var data = {
+      task_id: taskId,
+      notes: notes,
+    }
+
+    $http.post(SERVER_ADDRESS + '/1/api_logged_tasks/', data).then(
+      function (success) {
+        dfd.resolve(success.data.logged_task);
+      },
+      function (failure) {
+        console.error(failure);
+        dfd.reject(failure);
+      }
+    )
+
+    return dfd.promise;
+  };
+
+  service.sendImage = function (taskId, image) {
+    console.log("service.sendImage(taskId, image)");
+    var dfd = $q.defer();
+
+    var data = {
+      logged_task_id: taskId,
+      image_data: image,
+    }
+
+    $http.post(SERVER_ADDRESS + '/1/api_logged_tasks_images').then(
+      function (success) {
+        dfd.resolve(success);
+      },
+      function (failure) {
+        dfd.reject(failure);
+      }
+    )
 
     return dfd.promise;
   }

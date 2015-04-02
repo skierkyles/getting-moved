@@ -88,7 +88,7 @@ app.config(function($stateProvider, $urlRouterProvider, $authProvider) {
   })
 
   .state('app.logged_task', {
-    url: "/activities/logged_tasks/:activityId",
+    url: "/activities/logged_tasks/:taskId",
     views: {
       'menuContent': {
         templateUrl: "templates/logged_task_detail.html",
@@ -97,7 +97,7 @@ app.config(function($stateProvider, $urlRouterProvider, $authProvider) {
     },
     resolve: {
       resolvedTask: function ($stateParams, Task) {
-        var taskId = $stateParams.activityId;
+        var taskId = $stateParams.taskId;
 
         return Task.getDetailedTask(taskId);
       }

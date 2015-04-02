@@ -8,12 +8,27 @@ controllers.controller('ActivitiesCtrl', function($scope, resolvedTasks) {
   $scope.activities = resolvedTasks;
 });
 
-controllers.controller('ActivityCtrl', function($scope, $ionicModal, resolvedTask) {
+controllers.controller('ActivityCtrl', function($scope, $state, Task, resolvedTask) {
   console.log('ActivityCtrl', resolvedTask);
   $scope.activity = resolvedTask;
+
+  $scope.logNewTask = function (data) {
+    console.log("$scope.logNewTask(data)");
+    console.log(data);
+
+    Task.sendTask($scope.activity.id, data.content).then(
+      function (success) {
+        data.content = "";
+        $state.go('app.logged_task', {taskId: success.id});
+      },
+      function (error) {
+
+      }
+    )
+  };
 });
 
-controllers.controller('LoggedTaskCtrl', function($scope, Camera, resolvedTask) {
+controllers.controller('LoggedTaskCtrl', function($scope, Camera, Task, resolvedTask) {
   console.log("LoggedTaskCtrl", resolvedTask);
   $scope.task = resolvedTask;
 
@@ -24,7 +39,21 @@ controllers.controller('LoggedTaskCtrl', function($scope, Camera, resolvedTask) 
       destinationType : Camera.DestinationType.DATA_URL,
       sourceType : Camera.PictureSourceType.CAMERA,
       encodingType: Camera.EncodingType.JPEG,
-    });
+    }).then(
+      function(result) {
+        Task.sendImage($scope.task.id, result).then(
+          function (success) {
+            alert('Sent!', success);
+
+          },
+          function (error) {
+            alert('Failwhale!', error);
+          });
+      },
+      function (error) {
+
+      }
+    );
   };
 });
 
