@@ -5,7 +5,8 @@ class ApiLoggedTasksImagesController < ApiController
     begin
       puts "Create Logged Image API"
       img = LoggedTaskImage.new
-      img.logged_task_id = params[:logged_task_id]
+      lt = LoggedTask.find(params[:logged_task_id])
+      img.logged_task = lt
       img.image_data = params[:image_data]
 
       puts img
