@@ -60,13 +60,19 @@ $dark:                            #444 !default;
 
 #Account {
   text-align: center; }
+  #Account h5 {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase; }
 
 #LoggedTaskDetail h1, #LoggedTaskDetail h2, #LoggedTaskDetail h3 {
   text-align: center; }
 
 #Login h1 {
   text-align: center;
-  padding: 20px; }
+  padding: 30px; }
+
+.back-text {
+  display: none; }
 
 /*!
   Ionicons, v1.5.2

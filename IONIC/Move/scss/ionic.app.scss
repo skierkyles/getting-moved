@@ -118,6 +118,11 @@ $menu-bg:                         $blue-color !default;
 
 #Account {
   text-align: center;
+
+  h5 {
+    font-family: $normal-font;
+    text-transform: uppercase;
+  }
 }
 
 #LoggedTaskDetail {
@@ -129,8 +134,12 @@ $menu-bg:                         $blue-color !default;
 #Login {
   h1 {
     text-align: center;
-    padding: 20px;
+    padding: 30px;
   }
+}
+
+.back-text {
+  display: none;
 }
 
 // The path for our ionicons font files, relative to the built CSS in www/css
