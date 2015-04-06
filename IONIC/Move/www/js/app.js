@@ -71,6 +71,7 @@ app.config(function($stateProvider, $urlRouterProvider, $authProvider) {
   })
 
   .state('app.activity', {
+    cache: false,
     url: "/activities/:activityId",
     views: {
       'menuContent': {
