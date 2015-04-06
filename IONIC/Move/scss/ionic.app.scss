@@ -65,6 +65,8 @@ $headings-font-family:            $fancy-font !default;
 
 $menu-bg:                         $blue-color !default;
 
+$energized:                       $orange-color !default;
+
 .bar {
   .title {
     font-family: $headings-font-family;
@@ -72,17 +74,38 @@ $menu-bg:                         $blue-color !default;
 }
 
 #LogTask {
+  text-align: center;
   position: relative;
+  background-color: $blue-color;
+  color: $white-color;
+
+  h3, h4 {
+    color: $white-color;
+  }
+
+  h3 {
+    padding: 20px;
+  }
+
+  .item {
+    margin: auto 20px;
+  }
+
+  .button {
+    text-transform: uppercase;
+    margin: 15px auto;
+  }
+
   .bottom {
     position: absolute;
-    bottom: 140px;
+    bottom: 90px;
     left: 48%;
     width: 12px;
   }
 
   .bottom-text {
     position: absolute;
-    bottom: 100px;
+    bottom: 50px;
     left: 37%;
   }
 }
@@ -102,6 +125,12 @@ $menu-bg:                         $blue-color !default;
       img {
         max-width: 100%;
       }
+    }
+  }
+
+  .list {
+    .item-notes {
+      text-transform: uppercase;
     }
   }
 

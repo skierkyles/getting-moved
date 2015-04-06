@@ -1,6 +1,7 @@
-<ion-view view-title="{{ activity.title }}">
+<ion-view view-title="View Activity">
   <ion-content>
     <div id="LogTask" full-screen-section>
+      <h3>{{ activity.title }}</h3>
 
       <form ng-submit="logNewTask(data)" name="logForm">
         <div class="row">
@@ -11,7 +12,7 @@
           </div>
         </div>
         <div class="row">
-          <button ng-disabled="logForm.$invalid" type="submit" class="button button-full button-positive">
+          <button ng-disabled="logForm.$invalid" type="submit" class="button button-energized">
             Log new {{ activity.title }} task
           </button>
         </div>
@@ -27,7 +28,7 @@
 
     <div id="TaskHistory">
       <div class="list card" ng-repeat="task in activity.logged_tasks">
-        <div class="item item-text-wrap" >
+        <div class="item item-text-wrap item-notes" >
           {{ task.notes }}
         </div>
         <div ng-if="task.images.length > 0" class="item row row-center thumb-row">
