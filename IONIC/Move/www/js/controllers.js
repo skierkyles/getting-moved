@@ -10,6 +10,7 @@ controllers.controller('ActivitiesCtrl', function($scope, Task, resolvedTasks) {
   $scope.doRefresh = function () {
     Task.getTasks({cache: false}).then(
       function (tasks) {
+        console.log(tasks);
         $scope.activities = tasks;
       },
       function (failure) {}
