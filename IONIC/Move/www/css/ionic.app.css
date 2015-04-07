@@ -114,8 +114,10 @@ $dark:                            #444 !default;
   text-align: center;
   padding: 30px; }
 
-.back-text {
-  display: none; }
+.back-text .default-title {
+  display: inline-block !important; }
+.back-text .previous-title {
+  display: none !important; }
 
 /*!
   Ionicons, v2.0.1
