@@ -28,15 +28,9 @@
 
     <div id="TaskHistory">
       <div class="list card" ng-repeat="task in activity.logged_tasks">
-        <div class="item item-text-wrap item-notes" >
+        <div class="item item-text-wrap item-notes" ng-class="{'with-image':task.images.length > 0}" style="background-image: url({{ task.images[0].image }})" >
           {{ task.notes }}
-        </div>
-        <div ng-if="task.images.length > 0" class="item row row-center thumb-row">
-          <div ng-repeat="image in task.images | limitTo: 3" class="col col-center">
-            <img ng-src="{{ image.thumb }}">
-          </div>
-        </div>
-        <div class="item item-body item-text-wrap">
+
           <p>
             <span class="subdued">On {{ task.task_date | date2 : "MMM doo yyyy"}}</span>
             <span class="subdued"  ng-if="task.comments.length > 0"> - {{ task.comments.length }} Comments</span>
