@@ -3,8 +3,13 @@ var move_services = angular.module('move.services', []);
 move_services.factory('Task', function ($q, $http, $ionicPopup, UserService) {
   var service = {};
 
-  service.getTasks = function () {
-    console.log("service.getTasks()");
+  service.getTasks = function (options) {
+    console.log("service.getTasks(options)", options);
+    options = (typeof options !== "object") ? {} : options;
+    if (options.cache === undefined || options.cache === null) {
+      options.cache = true;
+    }
+
     var dfd = $q.defer();
 
     var id = UserService.getUser().id;
@@ -14,7 +19,7 @@ move_services.factory('Task', function ($q, $http, $ionicPopup, UserService) {
       id = "";
     }
 
-    $http.get(SERVER_ADDRESS + '/1/api_tasks/' + id).then(
+    $http.get(SERVER_ADDRESS + '/1/api_tasks/' + id, {cache: options.cache}).then(
       function (success) {
         dfd.resolve(success.data.tasks);
       },

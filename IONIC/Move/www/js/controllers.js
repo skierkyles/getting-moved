@@ -8,7 +8,7 @@ controllers.controller('ActivitiesCtrl', function($scope, Task, resolvedTasks) {
   $scope.activities = resolvedTasks;
 
   $scope.doRefresh = function () {
-    Task.getTasks().then(
+    Task.getTasks({cache: false}).then(
       function (tasks) {
         $scope.activities = tasks;
       },

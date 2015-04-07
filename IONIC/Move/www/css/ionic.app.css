@@ -56,12 +56,17 @@ $dark:                            #444 !default;
 
 #TaskHistory p {
   margin: 0; }
+#TaskHistory .item {
+  text-align: center; }
 #TaskHistory .thumb-row {
-  padding: 0; }
+  padding: 0;
+  justify-content: center; }
   #TaskHistory .thumb-row div {
     padding: 0;
-    height: 100px; }
+    height: 100px;
+    max-width: 100px; }
     #TaskHistory .thumb-row div img {
+      height: 100px;
       max-width: 100%; }
 #TaskHistory .list .item-notes {
   text-transform: uppercase; }
@@ -70,7 +75,9 @@ $dark:                            #444 !default;
   border-top-color: #ddd !important;
   border-top-style: solid !important; }
   #TaskHistory .tabs .tab-item {
-    max-width: none; }
+    max-width: none;
+    text-transform: uppercase;
+    font-size: 12px; }
 
 #Account {
   text-align: center; }
@@ -79,6 +86,8 @@ $dark:                            #444 !default;
     text-transform: uppercase; }
 
 #LoggedTaskDetail h1, #LoggedTaskDetail h2, #LoggedTaskDetail h3 {
+  text-align: center; }
+#LoggedTaskDetail p {
   text-align: center; }
 
 #Login h1 {

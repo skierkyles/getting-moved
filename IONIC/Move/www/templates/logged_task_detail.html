@@ -12,7 +12,7 @@
         Take Picture
       </button>
     </div>
-    <h3>Comments</h3>
+    <h3 ng-if="task.comments.length > 0">Comments</h3>
     <div ng-repeat="comment in task.comments" class="list card">
       <div class="item item-icon-right">
         <h4>{{ comment.user }} said</h4>
