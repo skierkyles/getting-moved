@@ -28,7 +28,7 @@
 
     <div id="TaskHistory">
       <div class="list card" ng-repeat="task in activity.logged_tasks">
-        <div class="item item-text-wrap item-notes" ng-class="{'with-image':task.images.length > 0}" style="background-image: url({{ task.images[0].image }})" >
+        <div class="item item-text-wrap item-notes" ng-class="{'with-image':task.images.length > 0}" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url({{ task.images[0].image }}) no-repeat center;" >
           {{ task.notes }}
 
           <p>

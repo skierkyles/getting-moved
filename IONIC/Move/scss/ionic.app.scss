@@ -145,20 +145,14 @@ $energized:                       $orange-color !default;
 
   .item {
     text-align: center;
-  }
+    color: $white-color;
 
-  .thumb-row {
-    padding: 0;
-    justify-content: center;
-    div {
-      padding: 0;
-      height: 100px;
-      max-width: 100px;
+    p {
+      color: $white-color;
+    }
 
-      img {
-        height: 100px;
-        max-width: 100%;
-      }
+    &.with-image {
+
     }
   }
 

@@ -74,17 +74,10 @@ $dark:                            #444 !default;
 #TaskHistory p {
   margin: 0; }
 #TaskHistory .item {
-  text-align: center; }
-#TaskHistory .thumb-row {
-  padding: 0;
-  justify-content: center; }
-  #TaskHistory .thumb-row div {
-    padding: 0;
-    height: 100px;
-    max-width: 100px; }
-    #TaskHistory .thumb-row div img {
-      height: 100px;
-      max-width: 100%; }
+  text-align: center;
+  color: #e9e9e9; }
+  #TaskHistory .item p {
+    color: #e9e9e9; }
 #TaskHistory .list .item-notes {
   text-transform: uppercase; }
 #TaskHistory .tabs {
