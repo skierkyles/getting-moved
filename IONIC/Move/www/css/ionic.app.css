@@ -81,9 +81,7 @@ $dark:                            #444 !default;
 #TaskHistory .list .item-notes {
   text-transform: uppercase; }
 #TaskHistory .tabs {
-  border-top: 1px !important;
-  border-top-color: #ddd !important;
-  border-top-style: solid !important; }
+  border-top: 0px !important; }
   #TaskHistory .tabs .tab-item {
     max-width: none;
     text-transform: uppercase;

@@ -10,3 +10,16 @@ directives.directive("fullScreenSection", function () {
   }
 
 });
+
+directives.directive("setRandomBackgroundImage", function () {
+  var func = function (scope, element, attrs) {
+    console.log("setRandomBackgroundImage directive");
+  };
+
+  return {
+    link: func,
+    scope: {
+      activity: "="
+    }
+  }
+});
