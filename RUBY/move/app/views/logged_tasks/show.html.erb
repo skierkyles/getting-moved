@@ -64,7 +64,7 @@
     <% if @logged_task.comments.count == 0 && current_user == nil %>
       <div class="panel panel-default">
         <div class="panel-body">
-          No comments here, why don't you <%= link_to 'sign in', :signin %> and leave one?
+          No comments here, why don't you <%= link_to "sign in" , new_user_session_path %> and leave one?
         </div>
       </div>
     <% end %>

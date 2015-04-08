@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :user_relationships
 
-  has_attached_file :avatar, :styles => { :large => "1000x1000#", :medium => "500x500#", :thumb => "200x200#" }, :default_url => "/images/avatars/:style/missing.png"
+  has_attached_file :avatar, :styles => { :large => "1000x1000#", :medium => "500x500#", :thumb => "200x200#" }, :default_url => "/images/avatars/:style/missing.gif"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
   # Validators
