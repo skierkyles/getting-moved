@@ -8,7 +8,11 @@
   <div class="col-lg-4 col-md-6">
     <h1>The Time Tracker</h1>
     <h3>Track everything. Do more.</h3>
-    <%= link_to "Get Started" , new_user_registration_path, class: 'btn btn-primary' %>
+    <% if current_user %>
+      <%= link_to "Get Started" , current_user, class: 'btn btn-primary' %>
+    <% else %>
+      <%= link_to "Get Started" , new_user_registration_path, class: 'btn btn-primary' %>
+    <% end %>
     <p>Made in Salt Lake City, Utah. <%= link_to 'Find out how.', page_path('how-its-made') %></p>
     <p>Make sure to browse the <%= link_to 'API',  api_tasks_path(:version=>1) %></p>
   </div>
