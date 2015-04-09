@@ -27,21 +27,18 @@
     </div>
 
     <div id="TaskHistory">
-      <div class="list card" ng-repeat="task in activity.logged_tasks">
-        <div class="item item-text-wrap item-notes" ng-class="{'with-image':task.images.length > 0}" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url({{ task.images[0].image }}) no-repeat center;" >
-          {{ task.notes }}
+      <div class="list" ng-repeat="task in activity.logged_tasks">
+        <a class="item" ui-sref="app.logged_task({taskId: task.id})">
 
-          <p>
-            <span class="subdued">On {{ task.task_date | date2 : "MMM doo yyyy"}}</span>
-            <span class="subdued"  ng-if="task.comments.length > 0"> - {{ task.comments.length }} Comments</span>
-          </p>
-        </div>
+          <div class="item-text-wrap item-notes" ng-class="{'with-image':task.images.length > 0}" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url({{ task.images[0].image }}) no-repeat center;" >
+            {{ task.notes }}
 
-        <div class="item tabs tabs-secondary tabs-icon-right">
-          <a class="tab-item" ui-sref="app.logged_task({taskId: task.id})">
-            See More
-          </a>
-        </div>
+            <p>
+              <span class="subdued">On {{ task.task_date | date2 : "MMM doo yyyy"}}</span>
+              <span class="subdued"  ng-if="task.comments.length > 0"> - {{ task.comments.length }} Comments</span>
+            </p>
+          </div>
+        </a>
       </div>
     </div>
   </ion-content>

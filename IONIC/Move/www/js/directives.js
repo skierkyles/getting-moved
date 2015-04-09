@@ -13,13 +13,31 @@ directives.directive("fullScreenSection", function () {
 
 directives.directive("setRandomBackgroundImage", function () {
   var func = function (scope, element, attrs) {
-    console.log("setRandomBackgroundImage directive");
+    console.log("setRandomBackgroundImage directive", scope.activity);
+    var images = [];
+
+    for (var x = 0; x < scope.activity.logged_tasks.length; x++) {
+      var lt = scope.activity.logged_tasks[x];
+
+      for (var i of lt.images) {
+        images.push(i.image);
+      }
+    }
+
+    if (images.length > 0) {
+      var random_image = images[Math.floor(Math.random() * images.length)];
+      console.log("Random to set", random_image);
+
+      element[0].style.background = "linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(" + random_image + ")"
+      element[0].style.backgroundSize = "cover";
+      element[0].style.backgroundPosition = "center";
+    }
   };
 
   return {
     link: func,
     scope: {
-      activity: "="
+      activity: '='
     }
   }
 });

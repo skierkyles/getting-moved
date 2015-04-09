@@ -1,25 +1,30 @@
 <ion-view view-title="Task" id="LoggedTaskDetail">
   <ion-content>
-    <div class="list card">
+    <div class="list">
       <div class="item item-text-wrap">
-        <p>{{ task.notes }}</p>
+        <p>
+          {{ task.notes }}
+        </p>
+        <p class="task-date">
+          <span class="subdued">On {{ task.task_date | date2 : "MMM doo yyyy"}}</span>
+        </p>
       </div>
 
       <div class="item item-image" ng-repeat="image in task.images">
         <img ng-src="{{ image.image }}">
       </div>
       <button class="button button-full button-positive" ng-click="takePicture()">
-        Take Picture
+        <h2 class="btn-icon"><i class="ion-icon ion-camera"></i></h2>
       </button>
     </div>
     <h3 ng-if="task.comments.length > 0">Comments</h3>
     <div ng-repeat="comment in task.comments" class="list card">
       <div class="item item-icon-right">
         <h4>{{ comment.user }} said</h4>
-        <i ng-class-even="'icon ion-ios7-chatboxes-outline'" ng-class-odd="'icon ion-ios7-chatboxes'" ></i>
+        <i ng-class-even="'icon ion-ios-chatboxes-outline'" ng-class-odd="'icon ion-ios-chatboxes'" ></i>
       </div>
 
-      <div class="item item-body">
+      <div class="item item-comment-copy item-body">
         <p>{{ comment.copy }}</p>
       </div>
     </div>

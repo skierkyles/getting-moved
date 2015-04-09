@@ -5,12 +5,14 @@
       on-refresh="doRefresh()">
     </ion-refresher>
     <ion-list>
-      <ion-item ng-repeat="activity in activities" ui-sref='app.activity({activityId: activity.id})' set-random-background-image="activity">
-        <h3>{{ activity.title }}</h3>
-        <h4 ng-if="activity.logged_tasks.length > 0">
-          <i class="ion-icon ion-ios-checkmark-outline"></i>
-             {{ activity.logged_tasks.length }}
-        </h4>
+      <ion-item ng-repeat="activity in activities" ui-sref='app.activity({activityId: activity.id})' >
+        <div class="activity" set-random-background-image activity="activity">
+          <h3>{{ activity.title }}</h3>
+          <h4 ng-if="activity.logged_tasks.length > 0">
+            <i class="ion-icon ion-ios-checkmark-outline"></i>
+               {{ activity.logged_tasks.length }}
+          </h4>
+        </div>
       </ion-item>
     </ion-list>
   </ion-content>
