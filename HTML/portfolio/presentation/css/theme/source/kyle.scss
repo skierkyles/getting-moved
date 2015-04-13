@@ -41,6 +41,27 @@ section.has-light-background {
 	}
 }
 
+section {
+	img.blend-img {
+		background: none !important;
+		border: none !important;
+		box-shadow: none !important;
+	}
+
+	img.blend-img-sm {
+		height: 200px;
+	}
+
+	img.blend-img-md {
+		height: 300px;
+	}
+
+	img.blend-img-lg {
+		height: 400px;
+	}
+}
+
+
 
 // Theme template ------------------------------
 @import "../template/theme";
