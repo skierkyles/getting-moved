@@ -29,9 +29,9 @@
       <% end %>
     </div>
     <% end %>
+    <% if @logged_task.task.user == current_user %>
     <hr>
     <div class="panel panel-default">
-      <% if @logged_task.task.user == current_user %>
         <%= simple_form_for @logged_task_image, :html => { :multipart => true, :class => "form-inline panel-body" } do |form| %>
           <%= form.hidden_field :logged_task_id, :value => @logged_task.id %>
           <div class="form-group">
@@ -40,8 +40,8 @@
           </div>
           <%= form.submit "Upload", class: "btn btn-default pull-right" %>
         <% end %>
-      <% end %>
     </div>
+    <% end %>
   </div>
 
   <div class="col-md-5 col-sm-5">
