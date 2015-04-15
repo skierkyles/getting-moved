@@ -31,10 +31,11 @@ move_services.factory('Task', function ($q, $http, $ionicPopup, UserService) {
     return dfd.promise;
   }
 
-  service.getTask = function (taskId) {
+  service.getTask = function (taskId, options) {
     console.log("service.getTask(taskId)");
+
     var dfd = $q.defer();
-    service.getTasks().then(
+    service.getTasks(options).then(
       function (tasks) {
         for (var x = 0; x < tasks.length; x++) {
           var task = tasks[x];

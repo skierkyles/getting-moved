@@ -20,9 +20,10 @@ controllers.controller('ActivitiesCtrl', function($scope, Task, resolvedTasks) {
   }
 });
 
-controllers.controller('ActivityCtrl', function($scope, $state, Task, resolvedTask) {
+controllers.controller('ActivityCtrl', function($scope, $state, $stateParams, Task, resolvedTask) {
   console.log('ActivityCtrl', resolvedTask);
   $scope.activity = resolvedTask;
+  var taskId = $stateParams.activityId;
 
   $scope.logNewTask = function (data) {
     console.log("$scope.logNewTask(data)");
@@ -38,6 +39,18 @@ controllers.controller('ActivityCtrl', function($scope, $state, Task, resolvedTa
       }
     )
   };
+
+  $scope.doRefresh = function () {
+    Task.getTask(taskId, {cache: false}).then(
+      function (tasks) {
+        console.log(tasks);
+        $scope.activity = tasks;
+      },
+      function (failure) {}
+    ).finally(function () {
+      $scope.$broadcast('scroll.refreshComplete');
+    });
+  }
 });
 
 controllers.controller('LoggedTaskCtrl', function($scope, $ionicPopup, $ionicLoading, Camera, Task, resolvedTask) {
