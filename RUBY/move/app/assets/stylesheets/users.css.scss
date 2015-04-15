@@ -7,6 +7,8 @@
     text-transform: uppercase;
     font-family: $fancy-font;
     font-size: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 
   h3, h4 {
