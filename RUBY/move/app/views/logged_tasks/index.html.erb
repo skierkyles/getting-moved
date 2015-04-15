@@ -5,7 +5,7 @@
     <h1>Activity Stream</h1>
     <% @logged_tasks.each do |t| %>
       <%= link_to t , class: "list-group-item" do %>
-        <h4><%= t.task.user.name %> logged a task to <%= t.task.title %> <small>on <%= t.task_date.to_formatted_s(:short_date) %></small></h4>
+        <h4><%= t.task.user.found_name %> logged a task to <%= t.task.title %> <small>on <%= t.task_date.to_formatted_s(:short_date) %></small></h4>
         <p><%= t.notes %></p>
         <% if t.comments.count > 0 %>
           <footer><i class="fa fa-comments"></i> <%= t.comments.count %></footer>

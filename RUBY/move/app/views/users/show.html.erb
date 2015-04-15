@@ -1,4 +1,4 @@
-<% provide(:title, @user.name) %>
+<% provide(:title, @user.found_name) %>
 <% provide(:css_class, "show-user") %>
 
 <!-- First Row! -->
@@ -45,7 +45,7 @@
   </div>
 
   <div class="col-md-4 col-sm-4 user-pane panel panel-default">
-    <h1><%= @user.name %></h1>
+    <h1><%= @user.found_name %></h1>
     <%= image_tag @user.avatar.url(:thumb), :class=>"img-rounded avatar-image" %>
 
     <% if @is_current_user %>
@@ -71,7 +71,7 @@
     <h4>Friends</h4>
     <div class="list-group">
     <% @user.user_relationships.each do |f| %>
-      <%= link_to f.followed_user.name, f.followed_user, :class => "list-group-item" %>
+      <%= link_to f.followed_user.found_name, f.followed_user, :class => "list-group-item" %>
     <% end %>
     <% if @user.user_relationships.length == 0 %>
       <p class="list-group-item">
