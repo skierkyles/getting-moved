@@ -22,6 +22,19 @@ section.device-slide img {
   padding-left: 40px;
   padding-right: 40px; }
 
+div.phone-case {
+  background: url("/img/phone-case.png") no-repeat top;
+  height: 810px;
+  width: 380px;
+  position: relative;
+  margin: 0 auto; }
+  div.phone-case iframe {
+    position: absolute;
+    top: 104px;
+    left: 32px;
+    width: 320px;
+    height: 568px; }
+
 /*********************************************
  * GLOBAL STYLES
  *********************************************/

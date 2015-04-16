@@ -65,6 +65,13 @@ section {
 	}
 }
 
+#phone-section {
+	// margin-top: -45px;
+	//
+	// padding-top: 5px;
+	// padding-bottom: 5px;
+}
+
 section.device-slide {
 	img {
 		padding-left: 40px;
@@ -72,6 +79,22 @@ section.device-slide {
 	}
 }
 
+div.phone-case {
+	background: url("/img/phone-case.png") no-repeat top;
+	height: 810px;
+	width: 380px;
+	position: relative;
+	// margin-left: 20px;
+	margin: 0 auto;
+
+	iframe {
+		position: absolute;
+		top: 104px;
+		left: 32px;
+		width: 320px;
+		height: 568px;
+	}
+}
 
 
 // Theme template ------------------------------

@@ -1,0 +1,17 @@
+<ion-view view-title="My Account" id="Account">
+  <ion-content>
+    <div class="row">
+      <div class="col">
+        <h4>My Info</h4>
+        <h5>{{ data.user.email }}</h5>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <h4>Member Since</h4>
+        <h5>{{ data.user.created_at | date : 'mediumDate' }}</h5>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

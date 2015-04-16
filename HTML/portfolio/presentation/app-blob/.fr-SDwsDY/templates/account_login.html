@@ -1,0 +1,24 @@
+<ion-view view-title="Login" id="Login">
+  <ion-content>
+    <h1>The Time Tracker</h1>
+
+    <form ng-submit="doLogin()">
+      <div class="list">
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Email</span>
+          <input type="text" ng-model="loginData.email" placeholder="Email">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Password</span>
+          <input type="password" ng-model="loginData.password" placeholder="Password">
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">Log in</button>
+        </label>
+        <label ng-if="form_has_errors" class="item">
+          <span>{{ error_msg }}</span>
+        </label>
+      </div>
+    </form>
+  </ion-content>
+</ion-view>

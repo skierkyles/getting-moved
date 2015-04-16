@@ -1,0 +1,49 @@
+<ion-view view-title="View Activity">
+  <ion-content>
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="doRefresh()">
+    </ion-refresher>
+    <div id="LogTask" full-screen-section>
+      <h3>{{ activity.title }}</h3>
+
+      <form ng-submit="logNewTask(data)" name="logForm">
+        <div class="row">
+          <div class="col">
+            <label class="item item-input">
+              <textarea placeholder="Notes" ng-model="data.content" ng-minlength="1" required></textarea>
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <button ng-disabled="logForm.$invalid" type="submit" class="button button-positive">
+            Log new {{ activity.title }} task
+          </button>
+        </div>
+      </form>
+
+      <div class="row bottom">
+          <i class="icon ion-chevron-up"></i>
+      </div>
+      <div class="row bottom-text">
+        <h4>Slide Up</h4>
+      </div>
+    </div>
+
+    <div id="TaskHistory">
+      <div class="list" ng-repeat="task in activity.logged_tasks">
+        <a class="item" ui-sref="app.logged_task({taskId: task.id})">
+
+          <div class="item-text-wrap item-notes" ng-class="{'with-image':task.images.length > 0}" style="background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url({{ task.images[0].image }}) no-repeat center;" >
+            {{ task.notes }}
+
+            <p>
+              <span class="subdued">On {{ task.task_date | date2 : "MMM doo yyyy"}}</span>
+              <span class="subdued"  ng-if="task.comments.length > 0"> - {{ task.comments.length }} Comments</span>
+            </p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
