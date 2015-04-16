@@ -6,6 +6,5 @@
   },
   "dependencies": {
     "ng-token-auth": "~0.0.24",
-    "angular-messages": "1.3.6"
   }
 }

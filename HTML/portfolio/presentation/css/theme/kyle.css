@@ -15,6 +15,12 @@ section img.blend-img-md {
   height: 300px; }
 section img.blend-img-lg {
   height: 400px; }
+section img.blend-img-xl {
+  height: 600px; }
+
+section.device-slide img {
+  padding-left: 40px;
+  padding-right: 40px; }
 
 /*********************************************
  * GLOBAL STYLES
