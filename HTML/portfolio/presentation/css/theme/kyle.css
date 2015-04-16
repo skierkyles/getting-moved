@@ -19,7 +19,7 @@ section img.blend-img-xl {
   height: 600px; }
 
 #desktop-section div.laptop {
-  background: url("/img/laptop.png") no-repeat top;
+  background: url("/presentation/img/laptop.png") no-repeat top;
   position: relative;
   height: 756px;
   width: 1260px; }
