@@ -65,18 +65,24 @@ section {
 	}
 }
 
-#phone-section {
-	// margin-top: -45px;
-	//
-	// padding-top: 5px;
-	// padding-bottom: 5px;
+#desktop-section {
+	div.laptop {
+		background: url("/img/laptop.png") no-repeat top;
+		position: relative;
+		height: 756px;
+		width: 1260px;
+
+		iframe {
+			position: absolute;
+			top: 62px;
+			left: 165px;
+			height: 580px;
+			width: 930px;
+		}
+	}
 }
 
-section.device-slide {
-	img {
-		padding-left: 40px;
-		padding-right: 40px;
-	}
+#phone-section {
 }
 
 div.phone-case {

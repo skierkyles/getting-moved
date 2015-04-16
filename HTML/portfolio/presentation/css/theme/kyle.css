@@ -18,9 +18,17 @@ section img.blend-img-lg {
 section img.blend-img-xl {
   height: 600px; }
 
-section.device-slide img {
-  padding-left: 40px;
-  padding-right: 40px; }
+#desktop-section div.laptop {
+  background: url("/img/laptop.png") no-repeat top;
+  position: relative;
+  height: 756px;
+  width: 1260px; }
+  #desktop-section div.laptop iframe {
+    position: absolute;
+    top: 62px;
+    left: 165px;
+    height: 580px;
+    width: 930px; }
 
 div.phone-case {
   background: url("/presentation/img/phone-case.png") no-repeat top;
